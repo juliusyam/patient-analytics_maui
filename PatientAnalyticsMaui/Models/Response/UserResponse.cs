@@ -1,7 +1,8 @@
 ﻿using System.Text.Json.Serialization;
+
 namespace PatientAnalyticsMaui.Models.Response;
 
-record UserResponse
+public record UserResponse
 {
   [JsonPropertyName("token")]
   public string Token { get; init; }

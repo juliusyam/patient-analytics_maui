@@ -2,7 +2,7 @@
 
 namespace PatientAnalyticsMaui.Models;
 
-record Person
+public record Person
 {
   //public Person(DateTime dateOfBirth, string gender, string email, string? address, string? firstName, string? lastName, DateTime dateCreated,
   //      DateTime? dateEdited)
