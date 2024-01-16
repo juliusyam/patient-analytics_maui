@@ -1,15 +1,16 @@
 ﻿using RestSharp;
 using PatientAnalyticsMaui.Models.Payload;
 using PatientAnalyticsMaui.Models.Response;
+using PatientAnalyticsMaui.ViewModels;
 
 namespace PatientAnalyticsMaui.API;
 
-public class ApiService 
+public class ApiService
 {
   private readonly RestClient _client;
-  private string? _userToken;
+  private readonly UserViewModel _userViewModel;
 
-  public ApiService()
+  public ApiService(UserViewModel userViewModel)
   {
     _client = new RestClient(new RestClientOptions("http://localhost:5272")
     {
@@ -20,7 +21,7 @@ public class ApiService
     _client.AddDefaultHeader("Content-Type", "application/json");
     _client.AddDefaultHeader("Accept", "application/json");
 
-    _userToken = null;
+    _userViewModel = userViewModel;
   }
 
   public async Task<UserResponse> Login(LoginPayload payload)
@@ -29,7 +30,7 @@ public class ApiService
 
     var response = await _client.PostAsync<UserResponse>(request);
 
-    _userToken = response.Token;
+    _userViewModel.DefineUser(response.User, response.Token);
 
     return response;
   }

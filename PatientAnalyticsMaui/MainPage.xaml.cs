@@ -1,7 +1,7 @@
 ﻿using RestSharp;
 using PatientAnalyticsMaui.Models.Payload;
-using PatientAnalyticsMaui.Models.Response;
 using PatientAnalyticsMaui.API;
+using PatientAnalyticsMaui.ViewModels;
 
 namespace PatientAnalyticsMaui;
 
@@ -9,11 +9,14 @@ public partial class MainPage : ContentPage
 {
 	int count = 0;
 	private readonly ApiService _apiService;
+	private readonly UserViewModel _userViewModel;
 
-	public MainPage()
+	public MainPage(UserViewModel userViewModel)
 	{
 		InitializeComponent();
-		_apiService = new ApiService();
+    BindingContext = userViewModel;
+
+    _apiService = new ApiService(userViewModel);
   }
 
 	private async void OnCounterClicked(object sender, EventArgs e)
