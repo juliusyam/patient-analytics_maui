@@ -23,6 +23,12 @@ public class UserViewModel : INotifyPropertyChanged
     Token = token;
   }
 
+  public void RemoveUser()
+  {
+    User = null;
+    Token = null;
+  }
+
 #nullable enable
   User? user = null;
   public User? User
@@ -32,8 +38,13 @@ public class UserViewModel : INotifyPropertyChanged
     {
       user = value;
       OnPropertyChanged(nameof(User));
+
+      IsLoggedIn = value != null;
+      OnPropertyChanged(nameof(IsLoggedIn));
     }
   }
+
+  public bool IsLoggedIn { get; private set; }
 
   #nullable enable
   public string? Token { get; private set; }

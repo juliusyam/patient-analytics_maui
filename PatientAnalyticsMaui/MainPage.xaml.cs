@@ -15,6 +15,7 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
     BindingContext = userViewModel;
+		_userViewModel = userViewModel;
 
     _apiService = new ApiService(userViewModel);
   }
@@ -34,6 +35,13 @@ public partial class MainPage : ContentPage
 
 		CounterBtn.Text = $"You are now logged in as {response.User.Username}";
   }
+
+	private async void OnLogout(object sender, EventArgs e)
+	{
+		_userViewModel.RemoveUser();
+
+		CounterBtn.Text = "Login";
+	}
 }
 
 

@@ -28,18 +28,35 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Welcome to .NET Multi-platform App UI"
+                Text="Not Logged In"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                SemanticProperties.Description="Click Button To Login"
                 FontSize="18"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                IsVisible="{Binding !IsLoggedIn}" />
+
+            <Label
+                Text="Logged In"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Nice one!"
+                FontSize="18"
+                HorizontalOptions="Center"
+                IsVisible="{Binding IsLoggedIn}" />
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me"
+                Text="Login"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+
+          
+            <Button
+                x:Name="LogoutBtn"
+                Text="Log out"
+                Clicked="OnLogout"
+                HorizontalOptions="Center"
+                IsVisible="{Binding IsLoggedIn}" />
 
         </VerticalStackLayout>
     </ScrollView>
