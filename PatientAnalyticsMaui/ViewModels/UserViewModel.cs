@@ -39,12 +39,16 @@ public class UserViewModel : INotifyPropertyChanged
       user = value;
       OnPropertyChanged(nameof(User));
 
-      IsLoggedIn = value != null;
+      IsLoggedIn = (value != null);
       OnPropertyChanged(nameof(IsLoggedIn));
+
+      IsNotLoggedIn = (value == null);
+      OnPropertyChanged(nameof(IsNotLoggedIn));
     }
   }
 
   public bool IsLoggedIn { get; private set; }
+  public bool IsNotLoggedIn { get; private set; }
 
   #nullable enable
   public string? Token { get; private set; }

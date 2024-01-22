@@ -1,5 +1,4 @@
-﻿using RestSharp;
-using PatientAnalyticsMaui.Models.Payload;
+﻿using PatientAnalyticsMaui.Models.Payload;
 using PatientAnalyticsMaui.API;
 using PatientAnalyticsMaui.ViewModels;
 
@@ -7,11 +6,13 @@ namespace PatientAnalyticsMaui;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+	string username = "";
+	string password = "";
+
 	private readonly ApiService _apiService;
 	private readonly UserViewModel _userViewModel;
 
-	public MainPage(UserViewModel userViewModel)
+  public MainPage(UserViewModel userViewModel)
 	{
 		InitializeComponent();
     BindingContext = userViewModel;
@@ -20,28 +21,42 @@ public partial class MainPage : ContentPage
     _apiService = new ApiService(userViewModel);
   }
 
-	private async void OnCounterClicked(object sender, EventArgs e)
+	private async void OnUsernameInputChanged(object sender, EventArgs e)
 	{
-		count++;
+    username = ((Entry)sender).Text;
+		ValidateInput();
+  }
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+  private async void OnPasswordInputChanged(object sender, EventArgs e)
+  {
+    password = ((Entry)sender).Text;
+    ValidateInput();
+  }
 
+	private void ValidateInput()
+	{
+    if (password.Length > 4 && username.Length > 1)
+    {
+			IsInputValid = true;
+    } else
+		{
+			IsInputValid = false;
+		};
+  }
+
+  private async void OnLogin(object sender, EventArgs e)
+	{
 		SemanticScreenReader.Announce(CounterBtn.Text);
 
-		var response = await _apiService.Login(new LoginPayload("juliusyam_admin1", "RuleBritanniaGodSaveTheQueen123!"));
-
-		CounterBtn.Text = $"You are now logged in as {response.User.Username}";
+    await _apiService.Login(new LoginPayload(username, password));
   }
 
 	private async void OnLogout(object sender, EventArgs e)
 	{
 		_userViewModel.RemoveUser();
-
-		CounterBtn.Text = "Login";
 	}
+
+	public bool IsInputValid { get; private set; }
 }
 
 
