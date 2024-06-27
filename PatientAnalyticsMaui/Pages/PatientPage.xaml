@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PatientAnalyticsMaui.Pages.PatientPage"
+             xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
+             x:DataType="ViewModel:PatientViewModel"
+             Title="PatientPage">
+  <VerticalStackLayout>
+    <Label 
+        Text="Patient"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" />
+
+    <Label Text="{Binding Patient.Id}" />
+
+    <Label Text="{Binding Patient.DoctorId}" />
+
+    <Label Text="{Binding Patient.Gender}" />
+
+    <Label Text="{Binding Patient.FirstName}" />
+
+    <Label Text="{Binding Patient.LastName}" />
+
+    <Label Text="{Binding Patient.Email}" />
+
+    <Label Text="{Binding Patient.Address}" />
+
+    <Label Text="{Binding Patient.DateCreated}" />
+
+    <Label Text="{Binding Patient.DateEdited}" />
+
+    <Button Text="Edit Patient"
+            Clicked="OnNavigatePatientEdit" />
+  </VerticalStackLayout>
+</ContentPage>

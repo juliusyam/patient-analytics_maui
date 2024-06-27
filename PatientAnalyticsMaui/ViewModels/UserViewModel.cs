@@ -1,20 +1,14 @@
 ﻿using PatientAnalyticsMaui.Models;
-using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace PatientAnalyticsMaui.ViewModels;
 
-public class UserViewModel : INotifyPropertyChanged
+public partial class UserViewModel : ObservableObject
 {
   public UserViewModel()
   {
     User = null;
     Token = null;
-  }
-
-  public event PropertyChangedEventHandler PropertyChanged;
-  public void OnPropertyChanged(string propertyName)
-  {
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
   }
 
   public void DefineUser(User user, string token)
@@ -30,26 +24,36 @@ public class UserViewModel : INotifyPropertyChanged
   }
 
 #nullable enable
-  User? user = null;
+  private User? user = null;
   public User? User
   {
     get => user;
     set
     {
       user = value;
-      OnPropertyChanged(nameof(User));
+      OnPropertyChanged();
 
       IsLoggedIn = (value != null);
-      OnPropertyChanged(nameof(IsLoggedIn));
+      OnPropertyChanged();
 
       IsNotLoggedIn = (value == null);
-      OnPropertyChanged(nameof(IsNotLoggedIn));
+      OnPropertyChanged();
+
+      IsDoctor = value?.Role == "Doctor";
+      OnPropertyChanged();
     }
   }
 
-  public bool IsLoggedIn { get; private set; }
-  public bool IsNotLoggedIn { get; private set; }
+  [ObservableProperty]
+  public bool isLoggedIn;
 
-  #nullable enable
-  public string? Token { get; private set; }
+  [ObservableProperty]
+  public bool isNotLoggedIn;
+
+  [ObservableProperty]
+  public bool isDoctor;
+
+#nullable enable
+  [ObservableProperty]
+  public string? token;
 }

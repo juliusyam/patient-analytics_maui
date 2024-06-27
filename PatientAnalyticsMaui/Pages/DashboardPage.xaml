@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Model="clr-namespace:PatientAnalyticsMaui.Models"
+             x:Class="PatientAnalyticsMaui.Pages.DashboardPage"
+             xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
+             x:DataType="ViewModel:DashboardViewModel"
+             Title="DashboardPage">
+
+  <VerticalStackLayout>
+    <Label Text="{Binding Username}" />
+
+    <CollectionView ItemsSource="{Binding Patients}">
+      <CollectionView.ItemTemplate>
+        <DataTemplate x:DataType="Model:Patient">
+          <ContentView>
+            <Grid Padding="10">
+              <Frame>
+                <Frame.GestureRecognizers>
+                  <TapGestureRecognizer Tapped="OnViewPatient" />
+                </Frame.GestureRecognizers>
+                <Grid Padding="10">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
+                  <Label Grid.Column="1"
+                          Text="{Binding FirstName}"
+                          FontAttributes="Bold" />
+                  <Label Grid.Row="1"
+                          Grid.Column="1"
+                          Text="{Binding LastName}"
+                          FontAttributes="Italic"
+                          VerticalOptions="End" />
+                  <Label Grid.Row="2"
+                          Grid.Column="1"
+                          Text="{Binding Email}"
+                          FontAttributes="Italic"
+                          VerticalOptions="End" />
+                  </Grid>
+                </Frame>
+              </Grid>
+          </ContentView>
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
+    </CollectionView>
+  </VerticalStackLayout>
+</ContentPage>

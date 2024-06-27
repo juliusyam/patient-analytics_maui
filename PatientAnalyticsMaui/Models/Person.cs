@@ -4,45 +4,32 @@ namespace PatientAnalyticsMaui.Models;
 
 public record Person
 {
-  //public Person(DateTime dateOfBirth, string gender, string email, string? address, string? firstName, string? lastName, DateTime dateCreated,
-  //      DateTime? dateEdited)
-  //{
-  //  DateOfBirth = dateOfBirth;
-  //  Gender = gender;
-  //  Email = email;
-  //  Address = address;
-  //  DateCreated = dateCreated;
-  //  DateEdited = dateEdited;
-  //  FirstName = firstName;
-  //  LastName = lastName;
-  //}
-
   [JsonPropertyName("id")]
-  public int Id { get; init; }
+  public int Id { get; set; }
 
   [JsonPropertyName("dateOfBirth")]
-  public DateTime DateOfBirth { get; init; }
+  public DateTime DateOfBirth { get; set; }
 
   [JsonPropertyName("gender")]
-  public string Gender { get; init; }
+  public string Gender { get; set; }
 
   [JsonPropertyName("firstName")]
-  public string? FirstName { get; init; }
+  public string? FirstName { get; set; }
 
   [JsonPropertyName("lastName")]
-  public string? LastName { get; init; }
+  public string? LastName { get; set; }
 
   [JsonPropertyName("email")]
-  public string Email { get; init; }
+  public string Email { get; set; }
 
   [JsonPropertyName("address")]
-  public string? Address { get; init; }
+  public string? Address { get; set; }
 
   [JsonPropertyName("dateCreated")]
-  public DateTime DateCreated { get; init; }
+  public DateTime DateCreated { get; set; }
 
   [JsonPropertyName("dateEdited")]
-  public DateTime? DateEdited { get; init; }
+  public DateTime? DateEdited { get; set; }
 }
 
 

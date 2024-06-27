@@ -1,37 +1,62 @@
-﻿using RestSharp;
+﻿using Microsoft.Extensions.Configuration;
+using PatientAnalyticsMaui.Models;
 using PatientAnalyticsMaui.Models.Payload;
 using PatientAnalyticsMaui.Models.Response;
-using PatientAnalyticsMaui.ViewModels;
+using RestSharp;
 
 namespace PatientAnalyticsMaui.API;
 
 public class ApiService
-{
-  private readonly RestClient _client;
-  private readonly UserViewModel _userViewModel;
+{ 
+    private readonly RestClient _client;
+    private readonly IConfiguration _config;
+    private readonly string _token;
 
-  public ApiService(UserViewModel userViewModel)
-  {
-    _client = new RestClient(new RestClientOptions("http://localhost:5272")
+    public ApiService(string token, IConfiguration config)
     {
-      ThrowOnAnyError = true,
-      MaxTimeout = 1000,
-    });
+        _token = token;
+        _config = config;
+        
+        _client = new RestClient(new RestClientOptions(_config.GetRequiredSection("Api").Get<ApiConfig>().BaseUrl)
+        {
+            ThrowOnAnyError = true,
+            MaxTimeout = 1000,
+        });
 
-    _client.AddDefaultHeader("Content-Type", "application/json");
-    _client.AddDefaultHeader("Accept", "application/json");
+        _client.AddDefaultHeader("Content-Type", "application/json");
+        _client.AddDefaultHeader("Accept", "application/json");
 
-    _userViewModel = userViewModel;
-  }
+        if (token is not null)
+        {
+            _client.AddDefaultHeader("Authorization", $"Bearer { token }");
+        }
+    }
 
-  public async Task<UserResponse> Login(LoginPayload payload)
-  {
-    var request = new RestRequest("/auth/login").AddJsonBody(payload);
+    public async Task<UserResponse> Login(LoginPayload payload)
+    {
+        var request = new RestRequest("/api/auth/login").AddJsonBody(payload);
 
-    var response = await _client.PostAsync<UserResponse>(request);
+        var response = await _client.PostAsync<UserResponse>(request);
 
-    _userViewModel.DefineUser(response.User, response.Token);
+        return response;
+    }
 
-    return response;
-  }
+    // TODO: Query string implementation
+    public async Task<List<Patient>> GetPatients()
+    {
+        var request = new RestRequest("/api/patients");
+
+        var response = await _client.GetAsync<List<Patient>>(request);
+
+        return response;
+    }
+
+    public async Task<Patient> EditPatient(Patient patientPayload)
+    {
+        var request = new RestRequest($"/patients/{ patientPayload.Id }").AddJsonBody(patientPayload);
+
+        var response = await _client.PutAsync<Patient>(request);
+
+        return response;
+    }
 }
