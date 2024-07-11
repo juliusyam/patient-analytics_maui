@@ -1,31 +1,76 @@
-﻿using System;
+﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
-using PatientAnalyticsMaui.API;
+using Microsoft.AspNetCore.SignalR.Client;
 using PatientAnalyticsMaui.Models;
 
 namespace PatientAnalyticsMaui.ViewModels;
 
 public partial class DashboardViewModel : ObservableObject
 {
-  private readonly UserViewModel _userViewModel;
+    private UserViewModel _userViewModel;
+  
+    public DashboardViewModel(UserViewModel userViewModel)
+    {
+        _userViewModel = userViewModel;
 
-  public DashboardViewModel(UserViewModel userViewModel)
-  {
-    _userViewModel = userViewModel;
+        HubConnection = _userViewModel.GetHubConnection();
+    
+        HubMessage = "Hub built";
+    
+        if (HubConnection is not null) HubStatus = HubConnection.State.ToString();
+        
+        HubConnection?.On<string>("TestReceiveMessage", message =>
+        {
+            Console.WriteLine("Message received In Dashboard VM: " + message);
+            HubMessage = message;
+        });
 
-    Patients = new List<Patient>();
+        HubConnection?.On<Patient>("ReceiveNewPatient", patient =>
+        {
+            Console.WriteLine("Patient received: " + patient.Email);
+            Patients.Add(patient);
+        });
+        
+        HubConnection?.On<Patient>("ReceiveUpdatedPatient", patient =>
+        {
+            Console.WriteLine("Patient Update received: " + patient.Email);
+            var existingPatient = Patients.FirstOrDefault(p => p.Id == patient.Id);
 
-    Username = userViewModel.User.Username;
+            if (existingPatient is not null)
+            {
+                var index = Patients.IndexOf(existingPatient);
+                if (index >= 0) Patients[index] = patient;
+            }
+        });
+        
+        HubConnection?.On<Patient>("ReceiveDeletedPatient", (patient) =>
+        {
+            var existingPatient = Patients.FirstOrDefault(p => p.Id == patient.Id);
 
-    Token = userViewModel.Token;
-  }
+            if (existingPatient is not null) Patients.Remove(existingPatient);
+        });
 
-  [ObservableProperty]
-  public List<Patient> patients;
+        Username = userViewModel.User?.Username;
 
-  [ObservableProperty]
-  public string? username;
+        Token = userViewModel.Token;
+    }
 
-  [ObservableProperty]
-  public string? token;
+    [ObservableProperty]
+    public ObservableCollection<Patient> patients = new();
+
+    [ObservableProperty]
+    public string? username;
+
+    [ObservableProperty]
+    public string? token;
+  
+    #nullable enable
+    [ObservableProperty]
+    public HubConnection? hubConnection;
+  
+    [ObservableProperty]
+    public string hubMessage = "";
+  
+    [ObservableProperty]
+    public string hubStatus = "";
 }

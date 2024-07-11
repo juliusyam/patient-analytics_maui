@@ -4,6 +4,6 @@ namespace PatientAnalyticsMaui.Models;
 
 public record Patient : Person
 {
-  [JsonPropertyName("doctorId")]
-  public int DoctorId { get; set; }
+    [JsonPropertyName("doctorId")]
+    public int DoctorId { get; set; }
 }

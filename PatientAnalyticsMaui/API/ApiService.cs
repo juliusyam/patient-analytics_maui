@@ -22,8 +22,7 @@ public class ApiService
             ThrowOnAnyError = true,
             MaxTimeout = 1000,
         });
-
-        _client.AddDefaultHeader("Content-Type", "application/json");
+        
         _client.AddDefaultHeader("Accept", "application/json");
 
         if (token is not null)
@@ -35,7 +34,7 @@ public class ApiService
     public async Task<UserResponse> Login(LoginPayload payload)
     {
         var request = new RestRequest("/api/auth/login").AddJsonBody(payload);
-
+        
         var response = await _client.PostAsync<UserResponse>(request);
 
         return response;
@@ -46,14 +45,14 @@ public class ApiService
     {
         var request = new RestRequest("/api/patients");
 
-        var response = await _client.GetAsync<List<Patient>>(request);
+        var response = await _client.ExecuteAsync<List<Patient>>(request);
 
-        return response;
+        return response.Data;
     }
 
     public async Task<Patient> EditPatient(Patient patientPayload)
     {
-        var request = new RestRequest($"/patients/{ patientPayload.Id }").AddJsonBody(patientPayload);
+        var request = new RestRequest($"/api/patients/{ patientPayload.Id }").AddJsonBody(patientPayload);
 
         var response = await _client.PutAsync<Patient>(request);
 

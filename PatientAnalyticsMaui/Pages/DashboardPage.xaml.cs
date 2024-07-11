@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using PatientAnalyticsMaui.ViewModels;
-using PatientAnalyticsMaui.Models;
+﻿using System.Collections.ObjectModel;
+using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.Configuration;
 using PatientAnalyticsMaui.API;
+using PatientAnalyticsMaui.Models;
+using PatientAnalyticsMaui.ViewModels;
 
 namespace PatientAnalyticsMaui.Pages;
 
@@ -9,6 +11,7 @@ public partial class DashboardPage : ContentPage
 {
     private readonly ApiService _apiService;
     private readonly DashboardViewModel _dashboardViewModel;
+    private readonly HubConnection? _hubConnection;
     private readonly IConfiguration _config;
 
     public DashboardPage(DashboardViewModel dashboardViewModel, IConfiguration config)
@@ -19,6 +22,8 @@ public partial class DashboardPage : ContentPage
 
         BindingContext = _dashboardViewModel;
 
+        _hubConnection = _dashboardViewModel.HubConnection;
+        
         _config = config;
 
         _apiService = new ApiService(dashboardViewModel.Token, _config);
@@ -29,13 +34,15 @@ public partial class DashboardPage : ContentPage
     private async void OnFetchPatients()
     {
         try
-        { 
-            _dashboardViewModel.Patients = await _apiService.GetPatients();
+        {
+            var patients = await _apiService.GetPatients();
+            _dashboardViewModel.Patients = new ObservableCollection<Patient>(patients);
         }
         catch (Exception exception)
         {
             Console.WriteLine(exception);
-            await DisplayAlert("Unable to get patients", "Please try again later", "OK");
+            Console.WriteLine($"HTTP request exception: {exception.Message}");
+            await DisplayAlert("Unable to get patients", exception.ToString(), "OK");
         }
     }
 
@@ -47,5 +54,11 @@ public partial class DashboardPage : ContentPage
         {
             { "Patient", patient }
         });
+    }
+
+    private async void OnSendMessage(object sender, EventArgs e)
+    {
+        if (_hubConnection is not null)
+            await _hubConnection.InvokeAsync("TestSendMessage", "Mock Message from Maui");
     }
 }

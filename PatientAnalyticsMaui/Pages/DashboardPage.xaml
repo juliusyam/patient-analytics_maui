@@ -6,14 +6,19 @@
              xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
              x:DataType="ViewModel:DashboardViewModel"
              Title="DashboardPage">
+  <ScrollView x:Name="scrollView" VerticalOptions="FillAndExpand">
+    <VerticalStackLayout>
+      <Label Text="{Binding Username}" />
+      
+      <Label Text="{Binding HubMessage}" />
+      
+      <Label Text="{Binding HubStatus}" />
 
-  <VerticalStackLayout>
-    <Label Text="{Binding Username}" />
-
-    <CollectionView ItemsSource="{Binding Patients}">
-      <CollectionView.ItemTemplate>
-        <DataTemplate x:DataType="Model:Patient">
-          <ContentView>
+      <Button Text="Test Send Message" Clicked="OnSendMessage" />
+      
+      <CollectionView ItemsSource="{Binding Patients}">
+        <CollectionView.ItemTemplate>
+          <DataTemplate x:DataType="Model:Patient">
             <Grid Padding="10">
               <Frame>
                 <Frame.GestureRecognizers>
@@ -48,9 +53,9 @@
                   </Grid>
                 </Frame>
               </Grid>
-          </ContentView>
-        </DataTemplate>
-      </CollectionView.ItemTemplate>
-    </CollectionView>
-  </VerticalStackLayout>
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </VerticalStackLayout>
+  </ScrollView>
 </ContentPage>

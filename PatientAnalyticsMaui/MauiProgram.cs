@@ -34,7 +34,7 @@ public static class MauiProgram
 	    builder.Services.AddSingleton<PatientViewModel>();
 
 	    builder.Services.AddSingleton<MainPage>();
-	    builder.Services.AddSingleton<DashboardPage>();
+	    builder.Services.AddTransient<DashboardPage>();
 	    builder.Services.AddTransient<PatientPage>();
 	    builder.Services.AddTransient<PatientEditPage>();
 

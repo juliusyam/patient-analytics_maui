@@ -61,7 +61,7 @@ public partial class MainPage : ContentPage
 		{
 			Console.WriteLine(exception);
 		
-			await DisplayAlert("Unable to login", "Please try again with a different username and passwrod combo", "OK");
+			await DisplayAlert("Unable to login", "Please try again with a different username and password combo", "OK");
 		}
 	}
 
