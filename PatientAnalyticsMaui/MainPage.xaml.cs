@@ -55,7 +55,7 @@ public partial class MainPage : ContentPage
 		{
 			var response = await _apiService.Login(new LoginPayload(username, password));
 
-			_userViewModel.DefineUser(response.User, response.Token);
+			await _userViewModel.DefineUser(response.User, response.Token);
 		}
 		catch (Exception exception)
 		{

@@ -20,7 +20,7 @@ public class ApiService
         _client = new RestClient(new RestClientOptions(_config.GetRequiredSection("Api").Get<ApiConfig>().BaseUrl)
         {
             ThrowOnAnyError = true,
-            MaxTimeout = 1000,
+            MaxTimeout = 10000,
         });
         
         _client.AddDefaultHeader("Accept", "application/json");

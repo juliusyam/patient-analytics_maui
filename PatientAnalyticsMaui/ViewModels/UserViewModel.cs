@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.AspNetCore.Http.Connections;
@@ -16,18 +17,41 @@ public partial class UserViewModel : ObservableObject
         User = null;
         Token = null;
         _config = config;
+
+        Task.Run(async () =>
+        {
+            if (DeviceInfo.Platform == DevicePlatform.Android)
+            {
+                Token = await SecureStorage.Default.GetAsync("token");
+
+                var userString = await SecureStorage.Default.GetAsync("user");
+                User = JsonSerializer.Deserialize<User>(userString);
+            }
+        });
     }
 
-    public void DefineUser(User user, string token)
+    public async Task DefineUser(User user, string token)
     {
         User = user;
         Token = token;
+
+        if (DeviceInfo.Platform == DevicePlatform.Android)
+        {
+            await SecureStorage.Default.SetAsync("token", Token);
+            await SecureStorage.Default.SetAsync("user", JsonSerializer.Serialize(user));
+        }
     }
 
     public void RemoveUser()
     {
         User = null;
         Token = null;
+
+        if (DeviceInfo.Platform == DevicePlatform.Android)
+        {
+            SecureStorage.Default.Remove("token");
+            SecureStorage.Default.Remove("user"); 
+        }
     }
 
     #nullable enable

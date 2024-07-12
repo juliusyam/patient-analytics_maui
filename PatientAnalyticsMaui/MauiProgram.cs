@@ -39,7 +39,7 @@ public static class MauiProgram
 	    builder.Services.AddTransient<PatientEditPage>();
 
 #if DEBUG
-		builder.Logging.AddDebug();
+	    builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();
