@@ -24,7 +24,7 @@ public partial class PatientEditPage : ContentPage
 
 		_config = config;
 
-		_apiService = new ApiService(patientViewModel.Token, _config);
+		_apiService = new ApiService(patientViewModel.Token, patientViewModel.RefreshToken, _config);
 	}
 
 	private async void OnEmailInputChange(object sender, EventArgs e)

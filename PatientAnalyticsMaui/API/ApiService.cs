@@ -8,26 +8,32 @@ namespace PatientAnalyticsMaui.API;
 
 public class ApiService
 { 
-    private readonly RestClient _client;
+    private RestClient _client;
     private readonly IConfiguration _config;
-    private readonly string _token;
+    private string _token;
+    private string _refreshToken;
 
-    public ApiService(string token, IConfiguration config)
+    public ApiService(string token, string refreshToken, IConfiguration config)
     {
         _token = token;
+        _refreshToken = token;
         _config = config;
-        
+        InitializeClient();
+    }
+
+    private void InitializeClient()
+    {
         _client = new RestClient(new RestClientOptions(_config.GetRequiredSection("Api").Get<ApiConfig>().BaseUrl)
         {
             ThrowOnAnyError = true,
             MaxTimeout = 10000,
         });
-        
+
         _client.AddDefaultHeader("Accept", "application/json");
 
-        if (token is not null)
+        if (!string.IsNullOrEmpty(_token))
         {
-            _client.AddDefaultHeader("Authorization", $"Bearer { token }");
+            _client.AddDefaultHeader("Authorization", $"Bearer {_token}");
         }
     }
 
@@ -57,5 +63,26 @@ public class ApiService
         var response = await _client.PutAsync<Patient>(request);
 
         return response;
+    }
+
+    public async Task Logout(string token, string refreshToken)
+    {
+        var request = new RestRequest("/api/auth/logout", Method.Delete);
+                
+        request.AddJsonBody(new LogoutPayload(refreshToken));
+        try
+        {
+            var response = await _client.ExecuteAsync(request);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Exception during logout: " + ex.Message);
+        }
+        finally
+        {
+            _token = null;
+            _refreshToken = null;
+            InitializeClient();
+        }
     }
 }

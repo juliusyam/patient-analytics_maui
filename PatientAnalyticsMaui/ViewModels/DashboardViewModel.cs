@@ -13,9 +13,11 @@ public partial class DashboardViewModel : ObservableObject
     {
         _userViewModel = userViewModel;
 
-        HubConnection = _userViewModel.GetHubConnection();
-    
+        Patients = new ObservableCollection<Patient>();
         HubMessage = "Hub built";
+        HubStatus = string.Empty;
+
+        HubConnection = _userViewModel.GetHubConnection();
     
         if (HubConnection is not null) HubStatus = HubConnection.State.ToString();
         
@@ -53,6 +55,8 @@ public partial class DashboardViewModel : ObservableObject
         Username = userViewModel.User?.Username;
 
         Token = userViewModel.Token;
+
+        RefreshToken = userViewModel.RefreshToken;
     }
 
     [ObservableProperty]
@@ -63,8 +67,11 @@ public partial class DashboardViewModel : ObservableObject
 
     [ObservableProperty]
     public string? token;
-  
-    #nullable enable
+
+    [ObservableProperty]
+    public string? refreshToken;
+
+#nullable enable
     [ObservableProperty]
     public HubConnection? hubConnection;
   

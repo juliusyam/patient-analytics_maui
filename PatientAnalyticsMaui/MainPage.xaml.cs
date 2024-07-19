@@ -22,7 +22,7 @@ public partial class MainPage : ContentPage
 		_userViewModel = userViewModel;
 		_config = config;
 
-		_apiService = new ApiService(userViewModel.Token, _config);
+		_apiService = new ApiService(userViewModel.Token, userViewModel.RefreshToken, _config);
 	}
 
 	private async void OnUsernameInputChanged(object sender, EventArgs e)
@@ -65,15 +65,28 @@ public partial class MainPage : ContentPage
 		}
 	}
 
-	private async void OnLogout(object sender, EventArgs e)
+    private async void OnLogout(object sender, EventArgs e)
 	{
-		_userViewModel.RemoveUser();
-	}
+		await _apiService.Logout(_userViewModel.Token, _userViewModel.RefreshToken);
+
+		ClearLoginFields();
+
+        _userViewModel.RemoveUser();
+    }
 
 	private async void ToPatientDashboard(object sender, EventArgs e)
 	{ 
 		await AppShell.Current.GoToAsync(nameof(DashboardPage)); 
 	}
 
-	public bool IsInputValid { get; private set; }
+    private void ClearLoginFields()
+    {
+        username = "";
+        password = "";
+
+        usernameInput.Text = "";
+        passwordInput.Text = "";
+    }
+
+    public bool IsInputValid { get; private set; }
 }

@@ -30,16 +30,16 @@ public static class MauiProgram
 		builder.Configuration.AddConfiguration(config);
 
 	    builder.Services.AddSingleton<UserViewModel>();
-	    builder.Services.AddSingleton<DashboardViewModel>();
 	    builder.Services.AddSingleton<PatientViewModel>();
-
 	    builder.Services.AddSingleton<MainPage>();
-	    builder.Services.AddTransient<DashboardPage>();
+
+        builder.Services.AddTransient<DashboardViewModel>();
+        builder.Services.AddTransient<DashboardPage>();
 	    builder.Services.AddTransient<PatientPage>();
 	    builder.Services.AddTransient<PatientEditPage>();
 
 #if DEBUG
-	    builder.Logging.AddDebug();
+		builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();

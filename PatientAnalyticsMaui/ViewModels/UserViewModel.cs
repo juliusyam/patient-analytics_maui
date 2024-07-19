@@ -16,6 +16,7 @@ public partial class UserViewModel : ObservableObject
     {
         User = null;
         Token = null;
+        RefreshToken = null;
         _config = config;
 
         Task.Run(async () =>
@@ -34,6 +35,7 @@ public partial class UserViewModel : ObservableObject
     {
         User = user;
         Token = token;
+        RefreshToken = refreshToken;
 
         if (DeviceInfo.Platform == DevicePlatform.Android)
         {
@@ -52,6 +54,7 @@ public partial class UserViewModel : ObservableObject
             SecureStorage.Default.Remove("token");
             SecureStorage.Default.Remove("user"); 
         }
+        RefreshToken = null;
     }
 
     #nullable enable
@@ -96,7 +99,18 @@ public partial class UserViewModel : ObservableObject
             if (token is not null) EstablishHubConnection();
         }
     }
-    
+
+    private string? refreshToken;
+
+    public string? RefreshToken
+    {
+        get => refreshToken;
+        set
+        {
+            refreshToken = value;
+        }
+    }
+
     private HubConnection? _hubConnection;
 
     private async Task EstablishHubConnection()

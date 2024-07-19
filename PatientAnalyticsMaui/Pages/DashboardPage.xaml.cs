@@ -26,7 +26,7 @@ public partial class DashboardPage : ContentPage
         
         _config = config;
 
-        _apiService = new ApiService(dashboardViewModel.Token, _config);
+        _apiService = new ApiService(_dashboardViewModel.Token, _dashboardViewModel.RefreshToken, _config);
 
         OnFetchPatients();
     }
@@ -40,8 +40,6 @@ public partial class DashboardPage : ContentPage
         }
         catch (Exception exception)
         {
-            Console.WriteLine(exception);
-            Console.WriteLine($"HTTP request exception: {exception.Message}");
             await DisplayAlert("Unable to get patients", exception.ToString(), "OK");
         }
     }
