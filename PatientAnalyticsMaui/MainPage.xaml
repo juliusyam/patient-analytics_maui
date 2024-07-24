@@ -8,14 +8,11 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Label Text="{Binding User.Username}" />
-
             <Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="150"
-                HorizontalOptions="Center"
-                IsVisible="{Binding IsNotLoggedIn}"/>
+                HorizontalOptions="Center" />
 
             <Label
                 Text="Patient Analytics"
@@ -27,35 +24,18 @@
                 x:Name="usernameInput"
                 Placeholder="username-123"
                 Keyboard="Plain"
-                TextChanged="OnUsernameInputChanged"
-                IsVisible="{Binding IsNotLoggedIn}" />
+                TextChanged="OnUsernameInputChanged" />
 
             <Entry
                 x:Name="passwordInput"
                 IsPassword="True"
-                TextChanged="OnPasswordInputChanged"
-                IsVisible="{Binding IsNotLoggedIn}" />
+                TextChanged="OnPasswordInputChanged" />
 
             <Button
                 x:Name="LoginBtn"
                 Text="Login"
                 Clicked="OnLogin"
-                HorizontalOptions="Center"
-                IsVisible="{Binding IsNotLoggedIn}" />
-
-            <Button
-                x:Name="LogoutBten"
-                Text="Logout"
-                Clicked="OnLogout"
-                HorizontalOptions="Center"
-                IsVisible="{Binding IsLoggedIn}" />
-
-            <Button
-                x:Name="PatientDashboardBtn"
-                Text="Go to Patient Dashboard"
-                Clicked="ToPatientDashboard"
-                HorizontalOptions="Center"
-                IsVisible="{Binding IsDoctor}" />
+                HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>

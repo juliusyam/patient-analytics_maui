@@ -56,6 +56,19 @@ public partial class MainPage : ContentPage
 			var response = await _apiService.Login(new LoginPayload(username, password));
 
 			await _userViewModel.DefineUser(response.User, response.Token);
+
+			switch (response.User.Role)
+			{
+				case "Doctor":
+					ToPatientDashboard();
+					break;
+				case "SuperAdmin":
+				case "Admin":
+					ToAdminDashboard();
+					break;
+				default:
+					throw new InvalidOperationException($"Unexpected role: {response.User.Role}");
+			}
 		}
 		catch (Exception exception)
 		{
@@ -65,22 +78,21 @@ public partial class MainPage : ContentPage
 		}
 	}
 
-    private async void OnLogout(object sender, EventArgs e)
-	{
-		await _apiService.Logout(_userViewModel.Token, _userViewModel.RefreshToken);
-
-		ClearLoginFields();
-
-        _userViewModel.RemoveUser();
-    }
-
-	private async void ToPatientDashboard(object sender, EventArgs e)
+	private async void ToPatientDashboard()
 	{ 
-		await AppShell.Current.GoToAsync(nameof(DashboardPage)); 
+		await AppShell.Current.GoToAsync(nameof(DoctorDashboardPage)); 
 	}
 
-    private void ClearLoginFields()
+    private async void ToAdminDashboard()
     {
+        await AppShell.Current.GoToAsync(nameof(AdminDashboardPage));
+    }
+
+    public async void ClearLoginFields()
+    {
+        await _apiService.Logout(_userViewModel.Token, _userViewModel.RefreshToken);
+        _userViewModel.RemoveUser();
+
         username = "";
         password = "";
 

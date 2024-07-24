@@ -7,26 +7,27 @@ using PatientAnalyticsMaui.ViewModels;
 
 namespace PatientAnalyticsMaui.Pages;
 
-public partial class DashboardPage : ContentPage
+public partial class DoctorsPatientsPage : ContentPage
 {
+    private readonly MainPage _mainPage;
     private readonly ApiService _apiService;
-    private readonly DashboardViewModel _dashboardViewModel;
+    private readonly DoctorDashboardViewModel _doctorDashboardViewModel;
     private readonly HubConnection? _hubConnection;
     private readonly IConfiguration _config;
 
-    public DashboardPage(DashboardViewModel dashboardViewModel, IConfiguration config)
+    public DoctorsPatientsPage(DoctorDashboardViewModel doctorDashboardViewModel, IConfiguration config, MainPage mainPage)
     {
         InitializeComponent();
 
-        _dashboardViewModel = dashboardViewModel;
+        _doctorDashboardViewModel = doctorDashboardViewModel;
+        _mainPage = mainPage;
+        BindingContext = _doctorDashboardViewModel;
 
-        BindingContext = _dashboardViewModel;
-
-        _hubConnection = _dashboardViewModel.HubConnection;
+        _hubConnection = _doctorDashboardViewModel.HubConnection;
         
         _config = config;
 
-        _apiService = new ApiService(_dashboardViewModel.Token, _dashboardViewModel.RefreshToken, _config);
+        _apiService = new ApiService(_doctorDashboardViewModel.Token, _doctorDashboardViewModel.RefreshToken, _config);
 
         OnFetchPatients();
     }
@@ -36,7 +37,7 @@ public partial class DashboardPage : ContentPage
         try
         {
             var patients = await _apiService.GetPatients();
-            _dashboardViewModel.Patients = new ObservableCollection<Patient>(patients);
+            _doctorDashboardViewModel.Patients = new ObservableCollection<Patient>(patients);
         }
         catch (Exception exception)
         {
@@ -58,5 +59,12 @@ public partial class DashboardPage : ContentPage
     {
         if (_hubConnection is not null)
             await _hubConnection.InvokeAsync("TestSendMessage", "Mock Message from Maui");
+    }
+
+    private async void OnLogout(object sender, EventArgs e)
+    {
+        _mainPage.ClearLoginFields();
+        // TODO: add using nameof() instead of hardcoded
+        await AppShell.Current.GoToAsync("///MainPage");
     }
 }

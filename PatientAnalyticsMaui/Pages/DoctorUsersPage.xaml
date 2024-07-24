@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Model="clr-namespace:PatientAnalyticsMaui.Models"
+             x:Class="PatientAnalyticsMaui.Pages.DoctorUsersPage"
+             xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
+             xmlns:Controls="clr-namespace:PatientAnalyticsMaui.Controls"
+             x:DataType="ViewModel:AdminDashboardViewModel"
+             Title="Doctors">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+
+    <VerticalStackLayout Grid.Row="0" Grid.Column="0" Padding="10">
+      <Label Text="{Binding Username}" />
+      <Label Text="{Binding HubMessage}" />
+      <Label Text="{Binding HubStatus}" />
+    </VerticalStackLayout>
+
+    <Button
+      x:Name="LogoutBten"
+      Grid.Row="0"
+      Grid.Column="1"
+      Text="Logout"
+      Clicked="OnLogout"
+      Margin="0,0,10,0"
+      HorizontalOptions="End"
+      VerticalOptions="Center" />
+
+    <Controls:UserCollectionView Grid.Row="1" Grid.ColumnSpan="2" Users="{Binding Users}" />
+  </Grid>
+</ContentPage>

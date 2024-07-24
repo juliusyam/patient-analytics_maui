@@ -33,9 +33,16 @@ public static class MauiProgram
 	    builder.Services.AddSingleton<PatientViewModel>();
 	    builder.Services.AddSingleton<MainPage>();
 
-        builder.Services.AddTransient<DashboardViewModel>();
-        builder.Services.AddTransient<DashboardPage>();
-	    builder.Services.AddTransient<PatientPage>();
+        builder.Services.AddTransient<DoctorDashboardViewModel>();
+        builder.Services.AddTransient<AdminDashboardViewModel>();
+        builder.Services.AddTransient<DoctorDashboardPage>();
+        builder.Services.AddTransient<DoctorsPatientsPage>();
+        builder.Services.AddTransient<AdminDashboardPage>();
+        builder.Services.AddTransient<SuperAdminUsersPage>();
+        builder.Services.AddTransient<AdminUsersPage>();
+        builder.Services.AddTransient<DoctorUsersPage>();
+
+        builder.Services.AddTransient<PatientPage>();
 	    builder.Services.AddTransient<PatientEditPage>();
 
 #if DEBUG

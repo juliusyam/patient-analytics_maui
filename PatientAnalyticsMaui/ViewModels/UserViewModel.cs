@@ -68,13 +68,16 @@ public partial class UserViewModel : ObservableObject
             OnPropertyChanged();
 
             IsLoggedIn = (value != null);
-            OnPropertyChanged();
 
             IsNotLoggedIn = (value == null);
-            OnPropertyChanged();
 
             IsDoctor = value?.Role == "Doctor";
-            OnPropertyChanged();
+
+            IsSuperAdmin = value?.Role == "SuperAdmin";
+
+            IsAdmin = value?.Role == "Admin";
+
+            HasAdminPrivileges = IsSuperAdmin || IsAdmin;
         }
     }
 
@@ -87,7 +90,16 @@ public partial class UserViewModel : ObservableObject
     [ObservableProperty]
     public bool isDoctor;
 
-    #nullable enable
+    [ObservableProperty]
+    public bool isSuperAdmin;
+
+    [ObservableProperty]
+    public bool isAdmin;
+
+    [ObservableProperty]
+    public bool hasAdminPrivileges;
+
+#nullable enable
     private string? token;
 
     public string? Token

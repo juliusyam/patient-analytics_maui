@@ -5,11 +5,11 @@ using PatientAnalyticsMaui.Models;
 
 namespace PatientAnalyticsMaui.ViewModels;
 
-public partial class DashboardViewModel : ObservableObject
+public partial class DoctorDashboardViewModel : ObservableObject
 {
     private UserViewModel _userViewModel;
   
-    public DashboardViewModel(UserViewModel userViewModel)
+    public DoctorDashboardViewModel(UserViewModel userViewModel)
     {
         _userViewModel = userViewModel;
 

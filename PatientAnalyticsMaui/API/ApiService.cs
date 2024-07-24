@@ -85,4 +85,31 @@ public class ApiService
             InitializeClient();
         }
     }
+
+    public async Task<List<User>> GetSuperAdmins()
+    {
+        var request = new RestRequest("/api/super-admins");
+
+        var response = await _client.ExecuteAsync<List<User>>(request);
+
+        return response.Data;
+    }
+
+    public async Task<List<User>> GetAdmins()
+    {
+        var request = new RestRequest("/api/admins");
+
+        var response = await _client.ExecuteAsync<List<User>>(request);
+
+        return response.Data;
+    }
+
+    public async Task<List<User>> GetDoctors()
+    {
+        var request = new RestRequest("/api/doctors");
+
+        var response = await _client.ExecuteAsync<List<User>>(request);
+
+        return response.Data;
+    }
 }

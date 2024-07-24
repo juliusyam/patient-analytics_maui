@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Model="clr-namespace:PatientAnalyticsMaui.Models"
+             x:Class="PatientAnalyticsMaui.Pages.AdminDashboardPage"
+             xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
+             x:DataType="ViewModel:AdminDashboardViewModel"
+             Title="Admin Dashboard">
+  <ScrollView x:Name="scrollView" VerticalOptions="FillAndExpand">
+    <VerticalStackLayout>
+      <Label Text="{Binding Username}" />
+
+      <Label Text="{Binding HubMessage}" />
+
+      <Label Text="{Binding HubStatus}" />
+
+      <Button Text="Test Send Message" Clicked="OnSendMessage" />
+
+      <Label HeightRequest="20" />
+
+      <Button
+        x:Name="LogoutBten"
+        Text="Logout"
+        Clicked="OnLogout"
+        HorizontalOptions="Center" />
+
+      <Label HeightRequest="20" />
+
+      <Button
+        Text="View SuperAdmins"
+        Clicked="OnViewSuperAdmins"
+        HorizontalOptions="Center"
+        IsVisible="{Binding IsSuperAdmin}"/>
+
+      <Label HeightRequest="20" />
+
+      <Button
+        Text="View Admins"
+        Clicked="OnViewAdmins"
+        HorizontalOptions="Center" />
+
+      <Label HeightRequest="20" />
+
+      <Button
+        Text="View Doctors"
+        Clicked="OnViewDoctors" 
+        HorizontalOptions="Center"/>
+
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>
