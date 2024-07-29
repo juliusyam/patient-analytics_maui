@@ -14,13 +14,26 @@
       
       <Label Text="{Binding HubStatus}" />
         
-      <Label HeightRequest="20" />
+      <Label HeightRequest="20" />   
 
-      <Button
-        x:Name="LogoutBten"
-        Text="Logout"
-        Clicked="OnLogout"
-        HorizontalOptions="Center" />
+      <HorizontalStackLayout 
+        HorizontalOptions="Center"
+        Spacing="20"  
+        Margin="0,20">
+
+        <Button 
+          Text="Doctor Dashboard"
+          Clicked="OnDoctorDashboard"
+          WidthRequest="150" /> 
+        
+        <Button 
+          x:Name="LogoutBten"
+          Text="Logout"
+          Clicked="OnLogout"
+          WidthRequest="150" />
+        
+      </HorizontalStackLayout>
+
 
       <CollectionView ItemsSource="{Binding Patients}">
         <CollectionView.ItemTemplate>

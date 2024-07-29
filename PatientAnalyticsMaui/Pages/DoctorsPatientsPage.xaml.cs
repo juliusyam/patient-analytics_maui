@@ -67,4 +67,11 @@ public partial class DoctorsPatientsPage : ContentPage
         // TODO: add using nameof() instead of hardcoded
         await AppShell.Current.GoToAsync("///MainPage");
     }
+
+    private async void OnDoctorDashboard(object sender, EventArgs e)
+    {
+        await AppShell.Current.GoToAsync(nameof(DoctorDashboardPage));
+
+        Navigation.RemovePage(this);
+    }
 }

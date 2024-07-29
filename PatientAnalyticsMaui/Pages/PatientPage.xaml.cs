@@ -36,21 +36,18 @@ public partial class PatientPage : ContentPage
 
     private async void OnDeletePatient(object sender, EventArgs e)
     {
-        // Show a confirmation dialog
         bool confirmDelete = await DisplayAlert("Confirm Deletion", "Are you sure you want to delete this patient?", "Delete", "Cancel");
 
         if (confirmDelete)
         {
-            // Logic to delete the patient
-            //await DeletePatientAsync();
             var patientID = _patientViewModel.Patient.Id;
             bool success = await _apiService.DeletePatient(patientID);
             if (success)
             {
                 await DisplayAlert("Success", "Patient has been deleted.", "OK");
-                // Optionally, update UI or navigate away
+                //await AppShell.Current.GoToAsync("/DoctorsPatientsPage", true);
                 await AppShell.Current.GoToAsync(nameof(DoctorsPatientsPage));
-                //await AppShell.Current.GoToAsync("//DoctorsPatientsPage", true);
+                Navigation.RemovePage(this);
             }
             else
             {

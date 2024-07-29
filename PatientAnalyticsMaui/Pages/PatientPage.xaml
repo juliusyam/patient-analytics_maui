@@ -11,7 +11,7 @@
         VerticalOptions="Center" 
         HorizontalOptions="Center" />
 
-    <HorizontalStackLayout>
+    <HorizontalStackLayout Margin="20,0,0,0">
       <Label Text="Name:" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
@@ -33,7 +33,7 @@
 
     <BoxView HeightRequest="10" Color="Transparent" />
 
-    <HorizontalStackLayout>
+    <HorizontalStackLayout Margin="20,0,0,0">
       <Label Text="Email:" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
@@ -45,7 +45,7 @@
              Margin="5,0,0,0" />
     </HorizontalStackLayout>
 
-    <HorizontalStackLayout>
+    <HorizontalStackLayout Margin="20,0,0,0">
       <Label Text="Gender:" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
@@ -57,7 +57,7 @@
              Margin="5,0,0,0" />
     </HorizontalStackLayout>
 
-    <HorizontalStackLayout>
+    <HorizontalStackLayout Margin="20,0,0,0">
       <Label Text="Date of Birth:" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
@@ -69,7 +69,7 @@
              Margin="5,0,0,0" />
     </HorizontalStackLayout>
 
-    <HorizontalStackLayout>
+    <HorizontalStackLayout Margin="20,0,0,0">
       <Label Text="Address:" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
@@ -83,7 +83,7 @@
 
     <BoxView HeightRequest="10" Color="Transparent" />
 
-    <HorizontalStackLayout>
+    <HorizontalStackLayout Margin="20,0,0,0">
       <Label Text="Date Created:" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
@@ -95,7 +95,7 @@
              Margin="5,0,0,0" />
     </HorizontalStackLayout>
 
-    <HorizontalStackLayout>
+    <HorizontalStackLayout Margin="20,0,0,0">
       <Label Text="Date Edited:" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
