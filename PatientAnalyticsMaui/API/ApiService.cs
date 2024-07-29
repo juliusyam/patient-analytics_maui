@@ -65,6 +65,15 @@ public class ApiService
         return response;
     }
 
+    public async Task<bool> DeletePatient(int patientId)
+    {
+        var request = new RestRequest($"/api/patients/{patientId}");
+
+        var response = await _client.DeleteAsync(request);
+
+        return response.IsSuccessful;
+    }
+
     public async Task Logout(string token, string refreshToken)
     {
         var request = new RestRequest("/api/auth/logout", Method.Delete);

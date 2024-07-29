@@ -11,25 +11,116 @@
         VerticalOptions="Center" 
         HorizontalOptions="Center" />
 
-    <Label Text="{Binding Patient.Id}" />
+    <HorizontalStackLayout>
+      <Label Text="Name:" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start"
+             FontAttributes="Bold" 
+             FontSize="20"/>
 
-    <Label Text="{Binding Patient.DoctorId}" />
+      <Label Text="{Binding Patient.FirstName}" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start" 
+             FontSize="20"
+             Margin="5,0,0,0" />
 
-    <Label Text="{Binding Patient.Gender}" />
+      <Label Text="{Binding Patient.LastName}" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start" 
+             FontSize="20"
+             Margin="5,0,0,0" />
+    </HorizontalStackLayout>
 
-    <Label Text="{Binding Patient.FirstName}" />
+    <BoxView HeightRequest="10" Color="Transparent" />
 
-    <Label Text="{Binding Patient.LastName}" />
+    <HorizontalStackLayout>
+      <Label Text="Email:" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start"
+             FontAttributes="Bold" />
 
-    <Label Text="{Binding Patient.Email}" />
+      <Label Text="{Binding Patient.Email}" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start" 
+             Margin="5,0,0,0" />
+    </HorizontalStackLayout>
 
-    <Label Text="{Binding Patient.Address}" />
+    <HorizontalStackLayout>
+      <Label Text="Gender:" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start"
+             FontAttributes="Bold" />
 
-    <Label Text="{Binding Patient.DateCreated}" />
+      <Label Text="{Binding Patient.Gender}" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start" 
+             Margin="5,0,0,0" />
+    </HorizontalStackLayout>
 
-    <Label Text="{Binding Patient.DateEdited}" />
+    <HorizontalStackLayout>
+      <Label Text="Date of Birth:" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start"
+             FontAttributes="Bold" />
 
-    <Button Text="Edit Patient"
-            Clicked="OnNavigatePatientEdit" />
+      <Label Text="{Binding Patient.DateOfBirth}" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start" 
+             Margin="5,0,0,0" />
+    </HorizontalStackLayout>
+
+    <HorizontalStackLayout>
+      <Label Text="Address:" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start"
+             FontAttributes="Bold" />
+
+      <Label Text="{Binding Patient.Address}" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start" 
+             Margin="5,0,0,0" />
+    </HorizontalStackLayout>
+
+    <BoxView HeightRequest="10" Color="Transparent" />
+
+    <HorizontalStackLayout>
+      <Label Text="Date Created:" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start"
+             FontAttributes="Bold" />
+
+      <Label Text="{Binding Patient.DateCreated}" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start" 
+             Margin="5,0,0,0" />
+    </HorizontalStackLayout>
+
+    <HorizontalStackLayout>
+      <Label Text="Date Edited:" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start"
+             FontAttributes="Bold" />
+
+      <Label Text="{Binding Patient.DateEdited}" 
+             VerticalOptions="Center" 
+             HorizontalOptions="Start" 
+             Margin="5,0,0,0" />
+    </HorizontalStackLayout>
+
+    <HorizontalStackLayout 
+        HorizontalOptions="Center"
+        Spacing="20"  
+        Margin="0,20">
+
+      <Button Text="Edit Patient"
+              Clicked="OnNavigatePatientEdit"
+              WidthRequest="150" />
+
+      <Button Text="Delete Patient"
+              Clicked="OnDeletePatient"
+              BackgroundColor="Red"
+              TextColor="White"
+              WidthRequest="150" />
+    </HorizontalStackLayout>
   </VerticalStackLayout>
 </ContentPage>
