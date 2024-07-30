@@ -5,40 +5,55 @@
              xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
              x:DataType="ViewModel:PatientViewModel"
              Title="PatientEditPage">
-  <VerticalStackLayout>
+  <VerticalStackLayout Padding="20">
     <Label 
         Text="Patient Edit Page"
         VerticalOptions="Center" 
         HorizontalOptions="Center" />
 
-    <Entry
-      x:Name="EmailEntry"
-      Text="{Binding Patient.Email}"
-      TextChanged="OnEmailInputChange" />
+    <Label Text="Gender:" FontAttributes="Bold" />
+    <Entry 
+      x:Name="GenderEntry"
+      Text="{Binding Patient.Gender}" 
+      TextChanged="OnGenderInputChange" />
 
+    <Label Text="First Name:" FontAttributes="Bold" />
     <Entry
       x:Name="FirstNameEntry"
       Text="{Binding Patient.FirstName}"
       TextChanged="OnFirstNameInputChange" />
 
+    <Label Text="Last Name:" FontAttributes="Bold" />
     <Entry
       x:Name="LastNameEntry"
       Text="{Binding Patient.LastName}"
       TextChanged="OnLastNameInputChange" />
 
+    <Label Text="Email:" FontAttributes="Bold" />
+    <Entry
+      x:Name="EmailEntry"
+      Text="{Binding Patient.Email}"
+      TextChanged="OnEmailInputChange" />
+
+    <Label Text="Address:" FontAttributes="Bold" />
+    <Entry
+      x:Name="AddressEntry"
+      Text="{Binding Patient.Address}"
+      TextChanged="OnAddressInputChange" />
+
+    <Label Text="Patient Id:" FontAttributes="Bold" />
     <Label Text="{Binding Patient.Id}" />
 
+    <Label Text="Doctor Id:" FontAttributes="Bold" />
     <Label Text="{Binding Patient.DoctorId}" />
 
-    <Label Text="{Binding Patient.Gender}" />
-
-    <Label Text="{Binding Patient.Address}" />
-
+    <Label Text="Date Created:" FontAttributes="Bold" />
     <Label Text="{Binding Patient.DateCreated}" />
 
+    <Label Text="Date Edited:" FontAttributes="Bold" />
     <Label Text="{Binding Patient.DateEdited}" />
 
-    <Button Text="Edit"
+    <Button Text="Update"
             Clicked="OnEditPatient" />
   </VerticalStackLayout>
 </ContentPage>
