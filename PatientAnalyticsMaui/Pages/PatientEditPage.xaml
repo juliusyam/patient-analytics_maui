@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PatientAnalyticsMaui.Pages.PatientEditPage"
              xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
+             xmlns:resource="clr-namespace:PatientAnalyticsMaui.Resources.Localization"
              x:DataType="ViewModel:PatientViewModel"
              Title="PatientEditPage">
   <VerticalStackLayout Padding="20">
+             Title="{x:Static resource:Localized.Title_PatientEditPage}">
+  <VerticalStackLayout>
     <Label 
-        Text="Patient Edit Page"
+        Text="{x:Static resource:Localized.Title_PatientEditPage}"
         VerticalOptions="Center" 
         HorizontalOptions="Center" />
 
@@ -53,7 +56,7 @@
     <Label Text="Date Edited:" FontAttributes="Bold" />
     <Label Text="{Binding Patient.DateEdited}" />
 
-    <Button Text="Update"
+    <Button Text="{x:Static resource:Localized.Button_Edit}"
             Clicked="OnEditPatient" />
   </VerticalStackLayout>
 </ContentPage>

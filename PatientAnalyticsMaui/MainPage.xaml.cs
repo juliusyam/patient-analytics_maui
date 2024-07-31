@@ -3,6 +3,8 @@ using PatientAnalyticsMaui.Models.Payload;
 using PatientAnalyticsMaui.API;
 using PatientAnalyticsMaui.Pages;
 using PatientAnalyticsMaui.ViewModels;
+using Microsoft.Extensions.Localization;
+using PatientAnalyticsMaui.Resources.Localization;
 
 namespace PatientAnalyticsMaui;
 
@@ -14,13 +16,15 @@ public partial class MainPage : ContentPage
 	private readonly ApiService _apiService;
 	private readonly UserViewModel _userViewModel;
 	private readonly IConfiguration _config;
+    private readonly IStringLocalizer<Localized> _localized;
 
-	public MainPage(UserViewModel userViewModel, IConfiguration config)
+    public MainPage(UserViewModel userViewModel, IConfiguration config, IStringLocalizer<Localized> localized)
 	{
 		InitializeComponent();
 		BindingContext = userViewModel;
 		_userViewModel = userViewModel;
 		_config = config;
+		_localized = localized;
 
 		_apiService = new ApiService(userViewModel.Token, userViewModel.RefreshToken, _config);
 	}
@@ -54,7 +58,7 @@ public partial class MainPage : ContentPage
 		try
 		{
 			var response = await _apiService.Login(new LoginPayload(username, password));
-
+			
 			await _userViewModel.DefineUser(response.User, response.Token);
 
 			switch (response.User.Role)
@@ -70,13 +74,19 @@ public partial class MainPage : ContentPage
 					throw new InvalidOperationException($"Unexpected role: {response.User.Role}");
 			}
 		}
-		catch (Exception exception)
-		{
-			Console.WriteLine(exception);
-		
-			await DisplayAlert("Unable to login", "Please try again with a different username and password combo", "OK");
-		}
-	}
+        catch (Exception exception)
+        {
+			if (exception.Message == "Request failed with status code Unauthorized")
+			{
+                await DisplayAlert(_localized["AuthError_LoginWrongPasswordTitle"], _localized["AuthError_LoginFailureMessage"], _localized["Button_OK"]);                
+            }
+			else
+			{
+                await DisplayAlert(_localized["AuthError_LoginUserNotFoundTitle"], _localized["AuthError_LoginFailureMessage"], _localized["Button_OK"]);
+            }
+            
+        }
+    }
 
 	private async void ToPatientDashboard()
 	{ 

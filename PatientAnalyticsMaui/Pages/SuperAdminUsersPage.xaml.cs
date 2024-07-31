@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using PatientAnalyticsMaui.API;
 using PatientAnalyticsMaui.Models;
 using PatientAnalyticsMaui.ViewModels;
+using PatientAnalyticsMaui.Resources.Localization;
+using Microsoft.Extensions.Localization;
 
 namespace PatientAnalyticsMaui.Pages;
 
@@ -14,8 +16,9 @@ public partial class SuperAdminUsersPage : ContentPage
     private readonly AdminDashboardViewModel _adminDashboardViewModel;
     private readonly HubConnection? _hubConnection;
     private readonly IConfiguration _config;
+    private readonly IStringLocalizer<Localized> _localized;
 
-    public SuperAdminUsersPage(AdminDashboardViewModel adminDashboardViewModel, IConfiguration config, MainPage mainPage)
+    public SuperAdminUsersPage(AdminDashboardViewModel adminDashboardViewModel, IConfiguration config, MainPage mainPage, IStringLocalizer<Localized> localized)
     {
         InitializeComponent();
 
@@ -42,7 +45,7 @@ public partial class SuperAdminUsersPage : ContentPage
         }
         catch (Exception exception)
         {
-            await DisplayAlert("Unable to get patients", exception.ToString(), "OK");
+            await DisplayAlert(_localized["AuthError_UnableGetPatients"], exception.ToString(), _localized["Button_OK"]);
         }
     }
 

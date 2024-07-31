@@ -4,9 +4,10 @@
              xmlns:Model="clr-namespace:PatientAnalyticsMaui.Models"
              x:Class="PatientAnalyticsMaui.Pages.SuperAdminUsersPage"
              xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
+             xmlns:resource="clr-namespace:PatientAnalyticsMaui.Resources.Localization"
              xmlns:Controls="clr-namespace:PatientAnalyticsMaui.Controls"
              x:DataType="ViewModel:AdminDashboardViewModel"
-             Title="Super Admins">
+             Title="{x:Static resource:Localized.Title_SuperAdmins}">
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
@@ -24,10 +25,10 @@
     </VerticalStackLayout>
 
     <Button
-      x:Name="LogoutBten"
+      x:Name="LogoutBtn"
       Grid.Row="0"
       Grid.Column="1"
-      Text="Logout"
+      Text="{x:Static resource:Localized.Button_Logout}"
       Clicked="OnLogout"
       Margin="0,0,10,0"
       HorizontalOptions="End"

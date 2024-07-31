@@ -4,8 +4,9 @@
              xmlns:Model="clr-namespace:PatientAnalyticsMaui.Models"
              x:Class="PatientAnalyticsMaui.Pages.AdminDashboardPage"
              xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
+             xmlns:resource="clr-namespace:PatientAnalyticsMaui.Resources.Localization"
              x:DataType="ViewModel:AdminDashboardViewModel"
-             Title="Admin Dashboard">
+             Title="{x:Static resource:Localized.Title_AdminDashboard}">
   <ScrollView x:Name="scrollView" VerticalOptions="FillAndExpand">
     <VerticalStackLayout>
       <Label Text="{Binding Username}" />
@@ -19,15 +20,15 @@
       <Label HeightRequest="20" />
 
       <Button
-        x:Name="LogoutBten"
-        Text="Logout"
+        x:Name="LogoutBtn"
+        Text="{x:Static resource:Localized.Button_Logout}"
         Clicked="OnLogout"
         HorizontalOptions="Center" />
 
       <Label HeightRequest="20" />
 
       <Button
-        Text="View SuperAdmins"
+        Text="{x:Static resource:Localized.Button_ViewSuperAdmins}"
         Clicked="OnViewSuperAdmins"
         HorizontalOptions="Center"
         IsVisible="{Binding IsSuperAdmin}"/>
@@ -35,14 +36,14 @@
       <Label HeightRequest="20" />
 
       <Button
-        Text="View Admins"
+        Text="{x:Static resource:Localized.Button_ViewAdmins}"
         Clicked="OnViewAdmins"
         HorizontalOptions="Center" />
 
       <Label HeightRequest="20" />
 
       <Button
-        Text="View Doctors"
+        Text="{x:Static resource:Localized.Button_ViewDoctors}"
         Clicked="OnViewDoctors" 
         HorizontalOptions="Center"/>
 

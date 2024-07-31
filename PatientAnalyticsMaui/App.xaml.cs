@@ -1,12 +1,18 @@
-﻿namespace PatientAnalyticsMaui;
+﻿using System.Globalization;
+
+namespace PatientAnalyticsMaui;
 
 public partial class App : Application
 {
 	public App()
 	{
-		InitializeComponent();
+	    InitializeComponent();
 
-		MainPage = new AppShell();
+        var culture = CultureInfo.CurrentCulture;
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+        MainPage = new AppShell();
 	}
 }
 

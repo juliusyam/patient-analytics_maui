@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:PatientAnalyticsMaui.Resources.Localization"
+             xmlns:local="clr-namespace:PatientAnalyticsMaui"
              x:Class="PatientAnalyticsMaui.MainPage">
     <ScrollView>
         <VerticalStackLayout
@@ -15,10 +17,11 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Patient Analytics"
+                x:Name="welcomeLabel"
+                Text="{x:Static resource:Localized.AppTitle}"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" />           
 
             <Entry
                 x:Name="usernameInput"
@@ -33,7 +36,7 @@
 
             <Button
                 x:Name="LoginBtn"
-                Text="Login"
+                Text="{x:Static resource:Localized.Button_Login}"
                 Clicked="OnLogin"
                 HorizontalOptions="Center" />
 

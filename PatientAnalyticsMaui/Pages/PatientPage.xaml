@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PatientAnalyticsMaui.Pages.PatientPage"
              xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
+             xmlns:resource="clr-namespace:PatientAnalyticsMaui.Resources.Localization"
              x:DataType="ViewModel:PatientViewModel"
-             Title="PatientPage">
+             Title="{x:Static resource:Localized.Title_PatientPage}">
   <VerticalStackLayout>
     <Label 
-        Text="Patient"
+        Text="{x:Static resource:Localized.Label_Patient}"
         VerticalOptions="Center" 
         HorizontalOptions="Center" />
 
@@ -122,5 +123,7 @@
               TextColor="White"
               WidthRequest="150" />
     </HorizontalStackLayout>
+    <Button Text="{x:Static resource:Localized.Button_EditPatient}"
+            Clicked="OnNavigatePatientEdit" />
   </VerticalStackLayout>
 </ContentPage>
