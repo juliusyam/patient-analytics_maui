@@ -7,74 +7,81 @@
              xmlns:resource="clr-namespace:PatientAnalyticsMaui.Resources.Localization"
              x:DataType="ViewModel:DoctorDashboardViewModel"
              Title="{x:Static resource:Localized.Title_DoctorsPatients}">
-  <ScrollView x:Name="scrollView" VerticalOptions="FillAndExpand">
-    <VerticalStackLayout>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <VerticalStackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" Padding="10">
       <Label Text="{Binding Username}" />
-      
       <Label Text="{Binding HubMessage}" />
-      
       <Label Text="{Binding HubStatus}" />
-        
-      <Label HeightRequest="20" />   
+
+      <Label HeightRequest="20" />
 
       <HorizontalStackLayout 
         HorizontalOptions="Center"
-        Spacing="20"  
+        Spacing="20"
         Margin="0,20">
 
         <Button 
           Text="Doctor Dashboard"
           Clicked="OnDoctorDashboard"
-          WidthRequest="150" /> 
-        
+          WidthRequest="150" />
+
         <Button 
           x:Name="LogoutBtn"
           Text="{x:Static resource:Localized.Button_Logout}"
           Clicked="OnLogout"
           WidthRequest="150" />
-        
-      </HorizontalStackLayout>
 
-      <CollectionView ItemsSource="{Binding Patients}">
-        <CollectionView.ItemTemplate>
-          <DataTemplate x:DataType="Model:Patient">
-            <Grid Padding="10">
-              <Frame>
-                <Frame.GestureRecognizers>
-                  <TapGestureRecognizer Tapped="OnViewPatient" />
-                </Frame.GestureRecognizers>
-                <Grid Padding="10">
-                  <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                  </Grid.RowDefinitions>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                  </Grid.ColumnDefinitions>
-                  <Label Grid.Column="1"
-                          Text="{Binding FirstName}"
-                          FontAttributes="Bold" />
-                  <Label Grid.Row="1"
-                          Grid.Column="1"
-                          Text="{Binding LastName}"
-                          FontAttributes="Italic"
-                          VerticalOptions="End" />
-                  <Label Grid.Row="2"
-                          Grid.Column="1"
-                          Text="{Binding Email}"
-                          FontAttributes="Italic"
-                          VerticalOptions="End" />
+      </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+    <ScrollView Grid.Row="1">
+      <VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding Patients}">
+          <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="Model:Patient">
+              <Grid Padding="10">
+                <Frame>
+                  <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnViewPatient" />
+                  </Frame.GestureRecognizers>
+                  <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="Auto" />
+                      <RowDefinition Height="Auto" />
+                      <RowDefinition Height="Auto" />
+                      <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="Auto" />
+                      <ColumnDefinition Width="Auto" />
+                      <ColumnDefinition Width="Auto" />
+                      <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1"
+                            Text="{Binding FirstName}"
+                            FontAttributes="Bold" />
+                    <Label Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding LastName}"
+                            FontAttributes="Italic"
+                            VerticalOptions="End" />
+                    <Label Grid.Row="2"
+                            Grid.Column="1"
+                            Text="{Binding Email}"
+                            FontAttributes="Italic"
+                            VerticalOptions="End" />
                   </Grid>
                 </Frame>
               </Grid>
-          </DataTemplate>
-        </CollectionView.ItemTemplate>
-      </CollectionView>
-    </VerticalStackLayout>
-  </ScrollView>
+            </DataTemplate>
+          </CollectionView.ItemTemplate>
+        </CollectionView>
+      </VerticalStackLayout>
+    </ScrollView>
+  </Grid>
 </ContentPage>

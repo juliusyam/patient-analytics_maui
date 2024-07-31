@@ -27,12 +27,27 @@
                 x:Name="usernameInput"
                 Placeholder="username-123"
                 Keyboard="Plain"
-                TextChanged="OnUsernameInputChanged" />
+                TextChanged="OnUsernameInputChanged" />           
+            
+            <HorizontalStackLayout
+                Spacing="10"
+                VerticalOptions="Center">
 
-            <Entry
-                x:Name="passwordInput"
-                IsPassword="True"
-                TextChanged="OnPasswordInputChanged" />
+                <Entry
+                    x:Name="passwordInput"
+                    IsPassword="True"
+                    TextChanged="OnPasswordInputChanged"
+                    Placeholder="Password"
+                    WidthRequest="260"/>
+
+                <Button
+                    x:Name="PasswordVisibilityToggle"
+                    Text="Show"
+                    Clicked="OnPasswordVisibilityToggleClicked"
+                    SemanticProperties.Description="Toggle password visibility"
+                    WidthRequest="80"/>
+    
+            </HorizontalStackLayout>
 
             <Button
                 x:Name="LoginBtn"

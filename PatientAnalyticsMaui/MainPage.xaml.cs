@@ -18,6 +18,8 @@ public partial class MainPage : ContentPage
 	private readonly IConfiguration _config;
     private readonly IStringLocalizer<Localized> _localized;
 
+    private bool _isPasswordVisible = false;
+
     public MainPage(UserViewModel userViewModel, IConfiguration config, IStringLocalizer<Localized> localized)
 	{
 		InitializeComponent();
@@ -29,7 +31,14 @@ public partial class MainPage : ContentPage
 		_apiService = new ApiService(userViewModel.Token, userViewModel.RefreshToken, _config);
 	}
 
-	private async void OnUsernameInputChanged(object sender, EventArgs e)
+    private void OnPasswordVisibilityToggleClicked(object sender, EventArgs e)
+    {
+        _isPasswordVisible = !_isPasswordVisible;
+        passwordInput.IsPassword = !_isPasswordVisible;
+        PasswordVisibilityToggle.Text = _isPasswordVisible ? "Hide" : "Show";
+    }
+
+    private async void OnUsernameInputChanged(object sender, EventArgs e)
 	{
 		username = ((Entry)sender).Text;
 		ValidateInput();
