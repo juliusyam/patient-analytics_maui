@@ -104,7 +104,18 @@ namespace PatientAnalyticsMaui.Resources.Localization {
                 return ResourceManager.GetString("AuthError_UnexpectedRole", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Patient.
+        /// </summary>
+        public static string Button_DeletePatient
+        {
+            get
+            {
+                return ResourceManager.GetString("Button_DeletePatient", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to 編輯.
         /// </summary>

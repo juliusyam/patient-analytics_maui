@@ -5,10 +5,8 @@
              xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
              xmlns:resource="clr-namespace:PatientAnalyticsMaui.Resources.Localization"
              x:DataType="ViewModel:PatientViewModel"
-             Title="PatientEditPage">
-  <VerticalStackLayout Padding="20">
              Title="{x:Static resource:Localized.Title_PatientEditPage}">
-  <VerticalStackLayout>
+  <VerticalStackLayout Padding="20">
     <Label 
         Text="{x:Static resource:Localized.Title_PatientEditPage}"
         VerticalOptions="Center" 

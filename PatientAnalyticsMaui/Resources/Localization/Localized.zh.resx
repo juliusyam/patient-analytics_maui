@@ -116,7 +116,10 @@
   </data>
   <data name="Button_Edit" xml:space="preserve">
     <value>編輯</value>
-  </data>  
+  </data>
+  <data name="Button_DeletePatient" xml:space="preserve">
+    <value>刪除患者</value>
+  </data>
   <data name="PatientError_NotFound" xml:space="preserve">
     <value>無法找到 ID 為 {0} 的患者</value>
   </data>

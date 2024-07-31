@@ -28,18 +28,12 @@
           WidthRequest="150" /> 
         
         <Button 
-          x:Name="LogoutBten"
-          Text="Logout"
+          x:Name="LogoutBtn"
+          Text="{x:Static resource:Localized.Button_Logout}"
           Clicked="OnLogout"
           WidthRequest="150" />
         
       </HorizontalStackLayout>
-
-      <Button
-        x:Name="LogoutBtn"
-        Text="{x:Static resource:Localized.Button_Logout}"
-        Clicked="OnLogout"
-        HorizontalOptions="Center" />
 
       <CollectionView ItemsSource="{Binding Patients}">
         <CollectionView.ItemTemplate>

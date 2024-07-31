@@ -106,6 +106,17 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Delete Patient.
+        /// </summary>
+        public static string Button_DeletePatient
+        {
+            get
+            {
+                return ResourceManager.GetString("Button_DeletePatient", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Bearbeiten.
         /// </summary>
         internal static string Button_Edit {
