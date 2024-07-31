@@ -31,10 +31,10 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
-	  <CreatePackage>false</CreatePackage>
+		<CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
-	  <CreatePackage>false</CreatePackage>
+		<CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
@@ -60,28 +60,70 @@
 		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.20" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.7" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="RestSharp" Version="110.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Platforms\Android\Resources\xml\auto_backup_rules.xml" />
-	  <None Remove="ViewModels\" />
-	  <None Remove="Models\" />
-	  <None Remove="Models\Payload\" />
-	  <None Remove="Models\Response\" />
-	  <None Remove="API\" />
-	  <None Remove="Pages\" />
+		<None Remove="Platforms\Android\Resources\xml\auto_backup_rules.xml" />
+		<None Remove="ViewModels\" />
+		<None Remove="Models\" />
+		<None Remove="Models\Payload\" />
+		<None Remove="Models\Response\" />
+		<None Remove="API\" />
+		<None Remove="Pages\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="ViewModels\" />
-	  <Folder Include="Models\Payload\" />
-	  <Folder Include="Models\Response\" />
-	  <Folder Include="API\" />
-	  <Folder Include="Pages\" />
+		<Folder Include="ViewModels\" />
+		<Folder Include="Models\Payload\" />
+		<Folder Include="Models\Response\" />
+		<Folder Include="API\" />
+		<Folder Include="Pages\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <None Remove="appsettings.json" />
-	  <EmbeddedResource Include="appsettings.json" />
+		<None Remove="appsettings.json" />
+		<EmbeddedResource Include="appsettings.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Resources\Localization\Localized.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Localized.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\Localization\Localized.de.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Localized.de.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\Localization\Localized.zh.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Localized.zh.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\Localization\Localized.de.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Localized.de.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\Localization\Localized.zh.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Localized.zh.resx</DependentUpon>
+			</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Localization\Localized.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>Localized.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\Localized.de.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Localized.de.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\Localized.zh.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Localized.zh.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 </Project>

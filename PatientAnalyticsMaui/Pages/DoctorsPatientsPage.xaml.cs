@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using PatientAnalyticsMaui.API;
 using PatientAnalyticsMaui.Models;
 using PatientAnalyticsMaui.ViewModels;
+using PatientAnalyticsMaui.Resources.Localization;
+using Microsoft.Extensions.Localization;
 
 namespace PatientAnalyticsMaui.Pages;
 
@@ -14,8 +16,9 @@ public partial class DoctorsPatientsPage : ContentPage
     private readonly DoctorDashboardViewModel _doctorDashboardViewModel;
     private readonly HubConnection? _hubConnection;
     private readonly IConfiguration _config;
+    private readonly IStringLocalizer<Localized> _localized;
 
-    public DoctorsPatientsPage(DoctorDashboardViewModel doctorDashboardViewModel, IConfiguration config, MainPage mainPage)
+    public DoctorsPatientsPage(DoctorDashboardViewModel doctorDashboardViewModel, IConfiguration config, MainPage mainPage, IStringLocalizer<Localized> localized)
     {
         InitializeComponent();
 
@@ -41,7 +44,7 @@ public partial class DoctorsPatientsPage : ContentPage
         }
         catch (Exception exception)
         {
-            await DisplayAlert("Unable to get patients", exception.ToString(), "OK");
+            await DisplayAlert(_localized["AuthError_UnableGetPatients"], exception.ToString(), _localized["Button_OK"]);
         }
     }
 

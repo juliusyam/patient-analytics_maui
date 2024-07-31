@@ -4,10 +4,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PatientAnalyticsMaui"
+    xmlns:resource="clr-namespace:PatientAnalyticsMaui.Resources.Localization"
     Shell.FlyoutBehavior="Disabled">
 
   <ShellContent
-      Title="Home"
+      Title="{x:Static resource:Localized.Title_Home}"
       ContentTemplate="{DataTemplate local:MainPage}"
       Route="MainPage" />
 </Shell>

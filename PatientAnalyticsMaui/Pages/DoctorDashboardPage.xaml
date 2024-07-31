@@ -4,8 +4,9 @@
              xmlns:Model="clr-namespace:PatientAnalyticsMaui.Models"
              x:Class="PatientAnalyticsMaui.Pages.DoctorDashboardPage"
              xmlns:ViewModel="clr-namespace:PatientAnalyticsMaui.ViewModels"
+             xmlns:resource="clr-namespace:PatientAnalyticsMaui.Resources.Localization"
              x:DataType="ViewModel:DoctorDashboardViewModel"
-             Title="Doctor Dashboard">
+             Title="{x:Static resource:Localized.Title_DoctorDashboard}">
   <ScrollView x:Name="scrollView" VerticalOptions="FillAndExpand">
     <VerticalStackLayout>
       <Label Text="{Binding Username}" />
@@ -19,16 +20,16 @@
       <Label HeightRequest="20" />
 
       <Button
-        x:Name="LogoutBten"
-        Text="Logout"
+        x:Name="LogoutBtn"
+        Text="{x:Static resource:Localized.Button_Logout}"
         Clicked="OnLogout"
         HorizontalOptions="Center" />
         
       <Label HeightRequest="20" />
 
       <Button
-        x:Name="PatientBten"
-        Text="Patients"
+        x:Name="PatientBtn"
+        Text="{x:Static resource:Localized.Button_Patient}"
         Clicked="Patients"
         HorizontalOptions="Center" />
       

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Patient Analytics</value>
+  </data>
+  <data name="Title_DoctorDashboard" xml:space="preserve">
+    <value>Doctor Dashboard</value>
+  </data>
+  <data name="Title_AdminDashboard" xml:space="preserve">
+    <value>Admin Dashboard</value>
+  </data>
+  <data name="Title_PatientDashboard" xml:space="preserve">
+    <value>Patient Dashboard</value>
+  </data>
+  <data name="Title_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Label_Patient" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="Button_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Button_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Button_Patient" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="Title_Admins" xml:space="preserve">
+    <value>Admins</value>
+  </data>
+  <data name="Title_Doctors" xml:space="preserve">
+    <value>Doctors</value>
+  </data>
+  <data name="Title_DoctorsPatients" xml:space="preserve">
+    <value>Doctors Patients</value>
+  </data>
+  <data name="Title_PatientEditPage" xml:space="preserve">
+    <value>Patient Edit Page</value>
+  </data>
+  <data name="Title_PatientPage" xml:space="preserve">
+    <value>Patient Page</value>
+  </data>
+  <data name="Title_SuperAdmins" xml:space="preserve">
+    <value>SuperAdmins</value>
+  </data>
+  <data name="Button_ViewAdmins" xml:space="preserve">
+    <value>View Admins</value>
+  </data>
+  <data name="Button_ViewDoctors" xml:space="preserve">
+    <value>View Doctors</value>
+  </data>
+  <data name="Button_ViewSuperAdmins" xml:space="preserve">
+    <value>View SuperAdmins</value>
+  </data>
+  <data name="Button_EditPatient" xml:space="preserve">
+    <value>Edit Patient</value>
+  </data>
+  <data name="Button_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="PatientError_NotFound" xml:space="preserve">
+    <value>Unable to locate patient with id: {0}</value>
+  </data>
+  <data name="PatientError_Forbidden" xml:space="preserve">
+    <value>This user is forbidden from viewing and modifying patient with id: {0}</value>
+  </data>
+  <data name="PatientTemperatureError_NotFound" xml:space="preserve">
+    <value>Unable to locate temperature record with id: {0}</value>
+  </data>
+  <data name="PatientBloodPressureError_NotFound" xml:space="preserve">
+    <value>Unable to locate blood pressure record with id: {0}</value>
+  </data>
+  <data name="PatientHeightError_NotFound" xml:space="preserve">
+    <value>Unable to locate height record with id: {0}</value>
+  </data>
+  <data name="PatientWeightError_NotFound" xml:space="preserve">
+    <value>Unable to locate weight record with id: {0}</value>
+  </data>
+  <data name="ReportTitles_Temperatures" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="ReportTitles_Weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="ReportTitles_Height" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="ReportTitles_BloodPressure" xml:space="preserve">
+    <value>Blood Pressure</value>
+  </data>
+  <data name="ReportTitles_PatientID" xml:space="preserve">
+    <value>Patient ID: {0}</value>
+  </data>
+  <data name="ReportTitles_Patient" xml:space="preserve">
+    <value>Report for patient {0} {1}</value>
+  </data>
+  <data name="ReportTitles_BMIStart" xml:space="preserve">
+    <value>First BMI Reading at {0}: {1}</value>
+  </data>
+  <data name="ReportTitles_BMIEnd" xml:space="preserve">
+    <value>Last BMI Reading at {0}: {1}</value>
+  </data>
+  <data name="DateFormatting_Date" xml:space="preserve">
+    <value>dd MMM yyyy</value>
+  </data>
+  <data name="DateFormatting_DateTime" xml:space="preserve">
+    <value>yyyyMMdd_hhmm</value>
+  </data>
+  <data name="AuthError_LoginFailureTitle" xml:space="preserve">
+    <value>Unable to Login</value>
+  </data>
+  <data name="AuthError_LoginUserNotFoundTitle" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="AuthError_LoginFailureMessage" xml:space="preserve">
+    <value>Please try again with a different username and password combo</value>
+  </data>
+  <data name="AuthError_LoginWrongPasswordTitle" xml:space="preserve">
+    <value>Wrong Password</value>
+  </data>
+  <data name="Button_OK" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="AuthError_UnexpectedRole" xml:space="preserve">
+    <value>Unexpected Role</value>
+  </data>
+  <data name="AuthError_UnableGetPatients" xml:space="preserve">
+    <value>Unable to get patients</value>
+  </data>
+</root>

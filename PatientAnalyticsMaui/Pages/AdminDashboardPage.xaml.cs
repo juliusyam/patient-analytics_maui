@@ -51,7 +51,6 @@ public partial class AdminDashboardPage : ContentPage
     {
         await AppShell.Current.GoToAsync(nameof(SuperAdminUsersPage));
     }
-    
 
     private async void OnViewAdmins(object sender, EventArgs e)
     {

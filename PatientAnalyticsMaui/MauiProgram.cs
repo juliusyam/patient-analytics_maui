@@ -45,8 +45,10 @@ public static class MauiProgram
         builder.Services.AddTransient<PatientPage>();
 	    builder.Services.AddTransient<PatientEditPage>();
 
+        builder.Services.AddLocalization();
+
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();
