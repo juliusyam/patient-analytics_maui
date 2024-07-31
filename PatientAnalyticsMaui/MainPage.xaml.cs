@@ -33,9 +33,9 @@ public partial class MainPage : ContentPage
 
     private void OnPasswordVisibilityToggleClicked(object sender, EventArgs e)
     {
-        _isPasswordVisible = !_isPasswordVisible;
-        passwordInput.IsPassword = !_isPasswordVisible;
-        PasswordVisibilityToggle.Text = _isPasswordVisible ? "Hide" : "Show";
+		_isPasswordVisible = !_isPasswordVisible;
+		passwordInput.IsPassword = !_isPasswordVisible;
+		PasswordVisibilityToggle.Text = _isPasswordVisible ? "Hide" : "Show";
     }
 
     private async void OnUsernameInputChanged(object sender, EventArgs e)
@@ -83,18 +83,17 @@ public partial class MainPage : ContentPage
 					throw new InvalidOperationException($"Unexpected role: {response.User.Role}");
 			}
 		}
-        catch (Exception exception)
-        {
+		catch (Exception exception)
+		{
 			if (exception.Message == "Request failed with status code Unauthorized")
 			{
-                await DisplayAlert(_localized["AuthError_LoginWrongPasswordTitle"], _localized["AuthError_LoginFailureMessage"], _localized["Button_OK"]);                
-            }
+				await DisplayAlert(_localized["AuthError_LoginWrongPasswordTitle"], _localized["AuthError_LoginFailureMessage"], _localized["Button_OK"]);                
+			}
 			else
 			{
-                await DisplayAlert(_localized["AuthError_LoginUserNotFoundTitle"], _localized["AuthError_LoginFailureMessage"], _localized["Button_OK"]);
-            }
-            
-        }
+				await DisplayAlert(_localized["AuthError_LoginUserNotFoundTitle"], _localized["AuthError_LoginFailureMessage"], _localized["Button_OK"]);
+			}
+		}
     }
 
 	private async void ToPatientDashboard()
