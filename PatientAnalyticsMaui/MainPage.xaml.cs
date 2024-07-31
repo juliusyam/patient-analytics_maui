@@ -35,7 +35,7 @@ public partial class MainPage : ContentPage
     {
 		_isPasswordVisible = !_isPasswordVisible;
 		passwordInput.IsPassword = !_isPasswordVisible;
-		PasswordVisibilityToggle.Text = _isPasswordVisible ? "Hide" : "Show";
+		PasswordVisibilityToggle.Text = _isPasswordVisible ? _localized["Button_Hide"] : _localized["Button_Show"];
     }
 
     private async void OnUsernameInputChanged(object sender, EventArgs e)

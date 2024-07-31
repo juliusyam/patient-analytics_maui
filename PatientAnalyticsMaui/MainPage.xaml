@@ -38,14 +38,14 @@
                     IsPassword="True"
                     TextChanged="OnPasswordInputChanged"
                     Placeholder="Password"
-                    WidthRequest="260"/>
+                    WidthRequest="240"/>
 
                 <Button
                     x:Name="PasswordVisibilityToggle"
-                    Text="Show"
+                    Text="{x:Static resource:Localized.Button_Show}"
                     Clicked="OnPasswordVisibilityToggleClicked"
                     SemanticProperties.Description="Toggle password visibility"
-                    WidthRequest="80"/>
+                    WidthRequest="100"/>
     
             </HorizontalStackLayout>
 

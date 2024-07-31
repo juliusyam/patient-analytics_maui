@@ -191,4 +191,10 @@
   <data name="AuthError_UnableGetPatients" xml:space="preserve">
     <value>Unable to get patients</value>
   </data>
+  <data name="Button_Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="Button_Hide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
 </root>

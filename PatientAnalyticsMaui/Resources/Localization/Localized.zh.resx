@@ -189,4 +189,10 @@
   <data name="AuthError_UnableGetPatients" xml:space="preserve">
     <value>無法接診患者</value>
   </data>
+  <data name="Button_Show" xml:space="preserve">
+    <value>展示</value>
+  </data>
+  <data name="Button_Hide" xml:space="preserve">
+    <value>隱藏</value>
+  </data>
 </root>

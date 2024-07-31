@@ -151,6 +151,15 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide.
+        /// </summary>
+        public static string Button_Hide {
+            get {
+                return ResourceManager.GetString("Button_Hide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Button_Login {
@@ -183,6 +192,15 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         public static string Button_Patient {
             get {
                 return ResourceManager.GetString("Button_Patient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show.
+        /// </summary>
+        public static string Button_Show {
+            get {
+                return ResourceManager.GetString("Button_Show", resourceCulture);
             }
         }
         
