@@ -231,9 +231,9 @@
     <value>Date of Birth:</value>
   </data>
   <data name="Label_Username" xml:space="preserve">
-        <value>Username</value>
-    </data>
+    <value>Username</value>
+  </data>
   <data name="Label_Password" xml:space="preserve">
-        <value>Password</value>
-    </data>
+    <value>Password</value>
+  </data>
 </root>

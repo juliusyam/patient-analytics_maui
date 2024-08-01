@@ -3,8 +3,6 @@ using PatientAnalyticsMaui.API;
 using PatientAnalyticsMaui.ViewModels;
 using PatientAnalyticsMaui.Resources.Localization;
 using Microsoft.Extensions.Localization;
-using System.Globalization;
-
 
 namespace PatientAnalyticsMaui.Pages;
 
@@ -72,11 +70,11 @@ public partial class PatientEditPage : ContentPage
 	{
 		var payload = _patientViewModel.Patient;
 
-        payload.Gender = genderInput;
-        payload.FirstName = firstNameInput;
+		payload.Gender = genderInput;
+		payload.FirstName = firstNameInput;
 		payload.LastName = lastnameInput;
 		payload.Email = emailInput;
-        payload.DateOfBirth = dateOfBirthInput;
+		payload.DateOfBirth = dateOfBirthInput;
 
 		try
 		{
@@ -84,13 +82,13 @@ public partial class PatientEditPage : ContentPage
 
 			_patientViewModel.Patient = response;
 
-            await AppShell.Current.GoToAsync(nameof(PatientPage), true, new Dictionary<string, object>
+			await AppShell.Current.GoToAsync(nameof(PatientPage), true, new Dictionary<string, object>
 			{
 				{ "Patient", _patientViewModel.Patient }
 			});
 
-            Navigation.RemovePage(this);
-        }
+			Navigation.RemovePage(this);
+		}
 		catch (Exception ex)
 		{
 			Console.WriteLine(ex);
