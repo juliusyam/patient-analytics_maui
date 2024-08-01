@@ -197,4 +197,43 @@
   <data name="Button_Hide" xml:space="preserve">
     <value>Verstecken</value>
   </data>
+  <data name="Label_Gender" xml:space="preserve">
+    <value>Geschlecht:</value>
+  </data>
+  <data name="Label_FirstName" xml:space="preserve">
+    <value>Vorname:</value>
+  </data>
+  <data name="Label_LastName" xml:space="preserve">
+    <value>Nachname:</value>
+  </data>
+  <data name="Label_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="Label_Address" xml:space="preserve">
+    <value>Adresse:</value>
+  </data>
+  <data name="Label_PatientId" xml:space="preserve">
+    <value>Patienten ID:</value>
+  </data>
+  <data name="Label_DoctorId" xml:space="preserve">
+    <value>Arzt-ID:</value>
+  </data>
+  <data name="Label_DateCreated" xml:space="preserve">
+    <value>Datum Erstellt:</value>
+  </data>
+  <data name="Label_DateEdited" xml:space="preserve">
+    <value>Bearbeitungsdatum:</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="Label_DOB" xml:space="preserve">
+    <value>Geburtsdatum:</value>
+  </data>
+  <data name="Label_Username" xml:space="preserve">
+    <value>Nutzername</value>
+  </data>
+  <data name="Label_Password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
 </root>

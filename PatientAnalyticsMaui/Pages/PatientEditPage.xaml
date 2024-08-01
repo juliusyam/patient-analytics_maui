@@ -9,51 +9,62 @@
   <VerticalStackLayout Padding="20">
     <Label 
         Text="{x:Static resource:Localized.Title_PatientEditPage}"
+        FontAttributes="Bold"
         VerticalOptions="Center" 
         HorizontalOptions="Center" />
 
-    <Label Text="Gender:" FontAttributes="Bold" />
+    <Label Text="{x:Static resource:Localized.Label_Gender}" FontAttributes="Bold" />
     <Entry 
       x:Name="GenderEntry"
       Text="{Binding Patient.Gender}" 
       TextChanged="OnGenderInputChange" />
 
-    <Label Text="First Name:" FontAttributes="Bold" />
+    <Label Text="{x:Static resource:Localized.Label_FirstName}" FontAttributes="Bold" />
     <Entry
       x:Name="FirstNameEntry"
       Text="{Binding Patient.FirstName}"
       TextChanged="OnFirstNameInputChange" />
 
-    <Label Text="Last Name:" FontAttributes="Bold" />
+    <Label Text="{x:Static resource:Localized.Label_LastName}" FontAttributes="Bold" />
     <Entry
       x:Name="LastNameEntry"
       Text="{Binding Patient.LastName}"
       TextChanged="OnLastNameInputChange" />
 
-    <Label Text="Email:" FontAttributes="Bold" />
+    <Label Text="{x:Static resource:Localized.Label_DOB}" FontAttributes="Bold" />
+    <DatePicker 
+      x:Name="DateOfBirthPicker"
+      Date="{Binding Patient.DateOfBirth, Mode=TwoWay}"
+      DateSelected="OnDateOfBirthSelected" />
+
+    <Label Text="{x:Static resource:Localized.Label_Email}" FontAttributes="Bold" />
     <Entry
       x:Name="EmailEntry"
       Text="{Binding Patient.Email}"
       TextChanged="OnEmailInputChange" />
 
-    <Label Text="Address:" FontAttributes="Bold" />
+    <Label Text="{x:Static resource:Localized.Label_Address}" FontAttributes="Bold" />
     <Entry
       x:Name="AddressEntry"
       Text="{Binding Patient.Address}"
       TextChanged="OnAddressInputChange" />
 
-    <Label Text="Patient Id:" FontAttributes="Bold" />
+    <Label HeightRequest="20" />
+
+    <Label Text="{x:Static resource:Localized.Label_PatientId}" FontAttributes="Bold" />
     <Label Text="{Binding Patient.Id}" />
 
-    <Label Text="Doctor Id:" FontAttributes="Bold" />
+    <Label Text="{x:Static resource:Localized.Label_DoctorId}" FontAttributes="Bold" />
     <Label Text="{Binding Patient.DoctorId}" />
 
-    <Label Text="Date Created:" FontAttributes="Bold" />
+    <Label Text="{x:Static resource:Localized.Label_DateCreated}" FontAttributes="Bold" />
     <Label Text="{Binding Patient.DateCreated}" />
 
-    <Label Text="Date Edited:" FontAttributes="Bold" />
+    <Label Text="{x:Static resource:Localized.Label_DateEdited}" FontAttributes="Bold" />
     <Label Text="{Binding Patient.DateEdited}" />
 
+    <Label HeightRequest="20" />
+    
     <Button Text="{x:Static resource:Localized.Button_Edit}"
             Clicked="OnEditPatient" />
   </VerticalStackLayout>

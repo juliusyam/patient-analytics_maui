@@ -34,6 +34,11 @@ public partial class PatientPage : ContentPage
 		});
 	}
 
+    private async void OnNavigateDoctorPatientList(object sender, EventArgs e)
+    {
+        await AppShell.Current.GoToAsync(nameof(DoctorsPatientsPage));
+    }
+
     private async void OnDeletePatient(object sender, EventArgs e)
     {
         bool confirmDelete = await DisplayAlert("Confirm Deletion", "Are you sure you want to delete this patient?", "Delete", "Cancel");
@@ -45,7 +50,6 @@ public partial class PatientPage : ContentPage
             if (success)
             {
                 await DisplayAlert("Success", "Patient has been deleted.", "OK");
-                //await AppShell.Current.GoToAsync("/DoctorsPatientsPage", true);
                 await AppShell.Current.GoToAsync(nameof(DoctorsPatientsPage));
                 Navigation.RemovePage(this);
             }

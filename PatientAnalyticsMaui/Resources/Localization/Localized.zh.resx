@@ -195,4 +195,43 @@
   <data name="Button_Hide" xml:space="preserve">
     <value>隱藏</value>
   </data>
+  <data name="Label_Gender" xml:space="preserve">
+    <value>性別：</value>
+  </data>
+  <data name="Label_FirstName" xml:space="preserve">
+    <value>名：</value>
+  </data>
+  <data name="Label_LastName" xml:space="preserve">
+    <value>姓：</value>
+  </data>
+  <data name="Label_Email" xml:space="preserve">
+    <value>電子郵件：</value>
+  </data>
+  <data name="Label_Address" xml:space="preserve">
+    <value>地址：</value>
+  </data>
+  <data name="Label_PatientId" xml:space="preserve">
+    <value>患者編號：</value>
+  </data>
+  <data name="Label_DoctorId" xml:space="preserve">
+    <value>醫生編號：</value>
+  </data>
+  <data name="Label_DateCreated" xml:space="preserve">
+    <value>建立日期：</value>
+  </data>
+  <data name="Label_DateEdited" xml:space="preserve">
+    <value>編輯日期：</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>姓名：</value>
+  </data>
+  <data name="Label_DOB" xml:space="preserve">
+    <value>出生日期：</value>
+  </data>
+  <data name="Label_Username" xml:space="preserve">
+    <value>賬戶名</value>
+  </data>
+  <data name="Label_Password" xml:space="preserve">
+    <value>密碼</value>
+  </data>
 </root>

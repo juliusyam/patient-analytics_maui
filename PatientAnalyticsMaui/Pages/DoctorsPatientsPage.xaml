@@ -24,9 +24,9 @@
         HorizontalOptions="Center"
         Spacing="20"
         Margin="0,20">
-
+        
         <Button 
-          Text="Doctor Dashboard"
+          Text="{x:Static resource:Localized.Title_DoctorDashboard}"
           Clicked="OnDoctorDashboard"
           WidthRequest="150" />
 

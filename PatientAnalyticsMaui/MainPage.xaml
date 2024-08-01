@@ -25,7 +25,7 @@
 
             <Entry
                 x:Name="usernameInput"
-                Placeholder="username-123"
+                Placeholder="{x:Static resource:Localized.Label_Username}"
                 Keyboard="Plain"
                 TextChanged="OnUsernameInputChanged" />           
             
@@ -37,7 +37,7 @@
                     x:Name="passwordInput"
                     IsPassword="True"
                     TextChanged="OnPasswordInputChanged"
-                    Placeholder="Password"
+                    Placeholder="{x:Static resource:Localized.Label_Password}"
                     WidthRequest="240"/>
 
                 <Button

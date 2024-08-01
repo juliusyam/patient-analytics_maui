@@ -1,6 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PatientAnalyticsMaui.API;
 using PatientAnalyticsMaui.ViewModels;
+using PatientAnalyticsMaui.Resources.Localization;
+using Microsoft.Extensions.Localization;
+using System.Globalization;
+
 
 namespace PatientAnalyticsMaui.Pages;
 
@@ -11,12 +15,14 @@ public partial class PatientEditPage : ContentPage
 	string lastnameInput = "";
     string emailInput = "";
     string addressInput = "";
+    DateTime dateOfBirthInput;
 
     private readonly PatientViewModel _patientViewModel;
 	private readonly ApiService _apiService;
 	private readonly IConfiguration _config;
+    private readonly IStringLocalizer<Localized> _localized;
 
-	public PatientEditPage(PatientViewModel patientViewModel, IConfiguration config)
+    public PatientEditPage(PatientViewModel patientViewModel, IConfiguration config, IStringLocalizer<Localized> localized)
 	{
 		InitializeComponent();
 
@@ -29,29 +35,37 @@ public partial class PatientEditPage : ContentPage
 		_apiService = new ApiService(patientViewModel.Token, patientViewModel.RefreshToken, _config);
 	}
 
-	private async void OnGenderInputChange(object sender, EventArgs e)
+	private void OnGenderInputChange(object sender, EventArgs e)
 	{
         genderInput = ((Entry)sender).Text;
 	}
 
-	private async void OnFirstNameInputChange(object sender, EventArgs e)
+	private void OnFirstNameInputChange(object sender, EventArgs e)
 	{
 		firstNameInput = ((Entry)sender).Text;
 	}
 
-	private async void OnLastNameInputChange(object sender, EventArgs e)
+	private void OnLastNameInputChange(object sender, EventArgs e)
 	{
 		lastnameInput = ((Entry)sender).Text;
 	}
 
-    private async void OnEmailInputChange(object sender, EventArgs e)
+    private void OnEmailInputChange(object sender, EventArgs e)
     {
         emailInput = ((Entry)sender).Text;
     }
 
-    private async void OnAddressInputChange(object sender, EventArgs e)
+    private void OnAddressInputChange(object sender, EventArgs e)
     {
         addressInput = ((Entry)sender).Text;
+    }
+
+    private void OnDateOfBirthSelected(object sender, EventArgs e)
+    {
+        if (sender is DatePicker datePicker)
+        {
+            dateOfBirthInput = datePicker.Date;
+        }
     }
 
     private async void OnEditPatient(object sender, EventArgs e)
@@ -62,16 +76,19 @@ public partial class PatientEditPage : ContentPage
         payload.FirstName = firstNameInput;
 		payload.LastName = lastnameInput;
 		payload.Email = emailInput;
+        payload.DateOfBirth = dateOfBirthInput;
 
 		try
 		{
 			var response = await _apiService.EditPatient(payload);
 
 			_patientViewModel.Patient = response;
-            //await _apiService.DeletePatient(patientID);
 
-            //DoctorsPatientsPage
-            await AppShell.Current.GoToAsync(nameof(DoctorsPatientsPage));
+            await AppShell.Current.GoToAsync(nameof(PatientPage), true, new Dictionary<string, object>
+			{
+				{ "Patient", _patientViewModel.Patient }
+			});
+
             Navigation.RemovePage(this);
         }
 		catch (Exception ex)

@@ -13,7 +13,7 @@
         HorizontalOptions="Center" />
 
     <HorizontalStackLayout Margin="20,0,0,0">
-      <Label Text="Name:" 
+      <Label Text="{x:Static resource:Localized.Label_Name}" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
              FontAttributes="Bold" 
@@ -35,7 +35,7 @@
     <BoxView HeightRequest="10" Color="Transparent" />
 
     <HorizontalStackLayout Margin="20,0,0,0">
-      <Label Text="Email:" 
+      <Label Text="{x:Static resource:Localized.Label_Email}" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
              FontAttributes="Bold" />
@@ -47,7 +47,7 @@
     </HorizontalStackLayout>
 
     <HorizontalStackLayout Margin="20,0,0,0">
-      <Label Text="Gender:" 
+      <Label Text="{x:Static resource:Localized.Label_Gender}" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
              FontAttributes="Bold" />
@@ -59,19 +59,19 @@
     </HorizontalStackLayout>
 
     <HorizontalStackLayout Margin="20,0,0,0">
-      <Label Text="Date of Birth:" 
+      <Label Text="{x:Static resource:Localized.Label_DOB}" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
              FontAttributes="Bold" />
 
-      <Label Text="{Binding Patient.DateOfBirth}" 
+      <Label Text="{Binding Patient.DateOfBirth, StringFormat='{0:MM/dd/yyyy}'} " 
              VerticalOptions="Center" 
              HorizontalOptions="Start" 
              Margin="5,0,0,0" />
     </HorizontalStackLayout>
 
     <HorizontalStackLayout Margin="20,0,0,0">
-      <Label Text="Address:" 
+      <Label Text="{x:Static resource:Localized.Label_Address}" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
              FontAttributes="Bold" />
@@ -85,7 +85,7 @@
     <BoxView HeightRequest="10" Color="Transparent" />
 
     <HorizontalStackLayout Margin="20,0,0,0">
-      <Label Text="Date Created:" 
+      <Label Text="{x:Static resource:Localized.Label_DateCreated}" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
              FontAttributes="Bold" />
@@ -97,7 +97,7 @@
     </HorizontalStackLayout>
 
     <HorizontalStackLayout Margin="20,0,0,0">
-      <Label Text="Date Edited:" 
+      <Label Text="{x:Static resource:Localized.Label_DateEdited}" 
              VerticalOptions="Center" 
              HorizontalOptions="Start"
              FontAttributes="Bold" />
@@ -123,5 +123,9 @@
               TextColor="White"
               WidthRequest="150" />
     </HorizontalStackLayout>
+
+    <Button Text="{x:Static resource:Localized.Title_DoctorsPatients}"
+            Clicked="OnNavigateDoctorPatientList"
+            WidthRequest="150" />
   </VerticalStackLayout>
 </ContentPage>

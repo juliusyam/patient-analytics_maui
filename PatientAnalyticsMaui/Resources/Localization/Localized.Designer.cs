@@ -250,11 +250,128 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address:.
+        /// </summary>
+        public static string Label_Address {
+            get {
+                return ResourceManager.GetString("Label_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Created:.
+        /// </summary>
+        public static string Label_DateCreated {
+            get {
+                return ResourceManager.GetString("Label_DateCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Edited:.
+        /// </summary>
+        public static string Label_DateEdited {
+            get {
+                return ResourceManager.GetString("Label_DateEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of Birth:.
+        /// </summary>
+        public static string Label_DOB {
+            get {
+                return ResourceManager.GetString("Label_DOB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doctor Id:.
+        /// </summary>
+        public static string Label_DoctorId {
+            get {
+                return ResourceManager.GetString("Label_DoctorId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email:.
+        /// </summary>
+        public static string Label_Email {
+            get {
+                return ResourceManager.GetString("Label_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Name:.
+        /// </summary>
+        public static string Label_FirstName {
+            get {
+                return ResourceManager.GetString("Label_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender:.
+        /// </summary>
+        public static string Label_Gender {
+            get {
+                return ResourceManager.GetString("Label_Gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name:.
+        /// </summary>
+        public static string Label_LastName {
+            get {
+                return ResourceManager.GetString("Label_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        public static string Label_Name {
+            get {
+                return ResourceManager.GetString("Label_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Label_Password {
+            get {
+                return ResourceManager.GetString("Label_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patient.
         /// </summary>
         public static string Label_Patient {
             get {
                 return ResourceManager.GetString("Label_Patient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patient Id:.
+        /// </summary>
+        public static string Label_PatientId {
+            get {
+                return ResourceManager.GetString("Label_PatientId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string Label_Username {
+            get {
+                return ResourceManager.GetString("Label_Username", resourceCulture);
             }
         }
         
