@@ -236,4 +236,28 @@
   <data name="Label_Password" xml:space="preserve">
     <value>Passwort</value>
   </data>
+  <data name="Title_DeleteConfirm" xml:space="preserve">
+    <value>Löschung Bestätigen</value>
+  </data>
+  <data name="Label_DeleteConfirm" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie diesen Patienten löschen möchten?</value>
+  </data>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Stornieren</value>
+  </data>
+  <data name="Button_Success" xml:space="preserve">
+    <value>Erfolg</value>
+  </data>
+  <data name="Button_Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="Label_DeleteSuccess" xml:space="preserve">
+    <value>Der Patient wurde gelöscht.</value>
+  </data>
+  <data name="Label_DeleteError" xml:space="preserve">
+    <value>Patient konnte nicht gelöscht werden.</value>
+  </data>
 </root>

@@ -2,6 +2,8 @@
 using PatientAnalyticsMaui.ViewModels;
 using PatientAnalyticsMaui.API;
 using Microsoft.Extensions.Configuration;
+using PatientAnalyticsMaui.Resources.Localization;
+using Microsoft.Extensions.Localization;
 
 namespace PatientAnalyticsMaui.Pages;
 
@@ -10,8 +12,9 @@ public partial class PatientPage : ContentPage
     private PatientViewModel _patientViewModel;
     private readonly ApiService _apiService;
     private readonly IConfiguration _config;
+    private readonly IStringLocalizer<Localized> _localized;
 
-    public PatientPage(PatientViewModel patientViewModel, IConfiguration config)
+    public PatientPage(PatientViewModel patientViewModel, IConfiguration config, IStringLocalizer<Localized> localized)
 	{
 		InitializeComponent();
 
@@ -41,7 +44,7 @@ public partial class PatientPage : ContentPage
 
     private async void OnDeletePatient(object sender, EventArgs e)
     {
-        bool confirmDelete = await DisplayAlert("Confirm Deletion", "Are you sure you want to delete this patient?", "Delete", "Cancel");
+        bool confirmDelete = await DisplayAlert(_localized["Title_DeleteConfirm"], _localized["Title_DeleteConfirm"], _localized["Button_Delete"], _localized["Button_Cancel"]);
 
         if (confirmDelete)
         {
@@ -49,13 +52,13 @@ public partial class PatientPage : ContentPage
             bool success = await _apiService.DeletePatient(patientID);
             if (success)
             {
-                await DisplayAlert("Success", "Patient has been deleted.", "OK");
+                await DisplayAlert(_localized["Button_Success"], _localized["Label_DeleteSuccess"], _localized["Button_OK"]);
                 await AppShell.Current.GoToAsync(nameof(DoctorsPatientsPage));
-                Navigation.RemovePage(this);
+                //Navigation.RemovePage(this);
             }
             else
             {
-                await DisplayAlert("Error", "Failed to delete patient.", "OK");
+                await DisplayAlert(_localized["Button_Error"], _localized["Label_DeleteError"], _localized["Button_OK"]);
             }
         }
     }

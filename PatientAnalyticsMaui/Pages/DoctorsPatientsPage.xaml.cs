@@ -75,6 +75,6 @@ public partial class DoctorsPatientsPage : ContentPage
     {
         await AppShell.Current.GoToAsync(nameof(DoctorDashboardPage));
 
-        Navigation.RemovePage(this);
+        //Navigation.RemovePage(this);
     }
 }

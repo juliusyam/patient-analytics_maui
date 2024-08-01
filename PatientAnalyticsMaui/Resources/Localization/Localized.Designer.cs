@@ -124,6 +124,24 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Button_Cancel {
+            get {
+                return ResourceManager.GetString("Button_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Button_Delete {
+            get {
+                return ResourceManager.GetString("Button_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Patient.
         /// </summary>
         public static string Button_DeletePatient {
@@ -147,6 +165,15 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         public static string Button_EditPatient {
             get {
                 return ResourceManager.GetString("Button_EditPatient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Button_Error {
+            get {
+                return ResourceManager.GetString("Button_Error", resourceCulture);
             }
         }
         
@@ -201,6 +228,15 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         public static string Button_Show {
             get {
                 return ResourceManager.GetString("Button_Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string Button_Success {
+            get {
+                return ResourceManager.GetString("Button_Success", resourceCulture);
             }
         }
         
@@ -273,6 +309,33 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         public static string Label_DateEdited {
             get {
                 return ResourceManager.GetString("Label_DateEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this patient?.
+        /// </summary>
+        public static string Label_DeleteConfirm {
+            get {
+                return ResourceManager.GetString("Label_DeleteConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to delete patient..
+        /// </summary>
+        public static string Label_DeleteError {
+            get {
+                return ResourceManager.GetString("Label_DeleteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patient has been deleted..
+        /// </summary>
+        public static string Label_DeleteSuccess {
+            get {
+                return ResourceManager.GetString("Label_DeleteSuccess", resourceCulture);
             }
         }
         
@@ -520,6 +583,15 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm Deletion.
+        /// </summary>
+        public static string Title_DeleteConfirm {
+            get {
+                return ResourceManager.GetString("Title_DeleteConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Doctor Dashboard.
         /// </summary>
         public static string Title_DoctorDashboard {
@@ -543,6 +615,15 @@ namespace PatientAnalyticsMaui.Resources.Localization {
         public static string Title_DoctorsPatients {
             get {
                 return ResourceManager.GetString("Title_DoctorsPatients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to Edit.
+        /// </summary>
+        public static string Title_EditError {
+            get {
+                return ResourceManager.GetString("Title_EditError", resourceCulture);
             }
         }
         

@@ -236,4 +236,31 @@
   <data name="Label_Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="Title_DeleteConfirm" xml:space="preserve">
+    <value>Confirm Deletion</value>
+  </data>
+  <data name="Label_DeleteConfirm" xml:space="preserve">
+    <value>Are you sure you want to delete this patient?</value>
+  </data>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button_Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Button_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Label_DeleteSuccess" xml:space="preserve">
+    <value>Patient has been deleted.</value>
+  </data>
+  <data name="Label_DeleteError" xml:space="preserve">
+    <value>Failed to delete patient.</value>
+  </data>
+  <data name="Title_EditError" xml:space="preserve">
+    <value>Unable to Edit</value>
+  </data>
 </root>
