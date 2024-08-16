@@ -1,4 +1,4 @@
-# Patient Analytics - C# Backend
+# Patient Analytics - Maui
 
 ## What is [.NET](https://dotnet.microsoft.com/en-us/)?
 .NET is the free, open-source, cross-platform framework for building modern apps and powerful cloud services.
@@ -15,11 +15,11 @@ Build native, cross-platform desktop and mobile apps all in one framework.
 ### 1: A Compatible Integrated Development Environment (IDE)
 A compatible IDE is required for .NET MAUI application development, to build and compile application to run on iOS simulators, Android emulators or physical iOS / Android devices.
 
-Compatible IDEs include the following
+Compatible IDEs include the following:-
 - [Microsoft Visual Studio](https://visualstudio.microsoft.com/)
 - [JetBrains Rider](https://www.jetbrains.com/rider/)
 
-This application is developed on JetBrains Rider [2024.1.2](https://blog.jetbrains.com/dotnet/2024/05/07/rider-2024-1-2/)
+This application is developed on JetBrains Rider [2024.1.2](https://blog.jetbrains.com/dotnet/2024/05/07/rider-2024-1-2/).
 
 ### 2: Patient Analytics - C# Backend is Deployed / Ran Locally
 Patient Analytics C# Backend provides Web APIs to allow the mobile application to perform core functionalities and communicate with the backend.
